@@ -1,6 +1,6 @@
 import React, {Fragment, useState} from "react";
 import {Link, Redirect} from 'react-router-dom';
-import {toast} from 'react-toastify';
+import '../styles.css'
 
 const Login = ({setAuth}) => {
 
@@ -40,6 +40,7 @@ const Login = ({setAuth}) => {
 
     return (
         <Fragment>
+            <div className='log-reg-container'>
             <h1 className='text-center my-5'>Login</h1>
             <form onSubmit={onSubmitForm}>
                 <input 
@@ -59,10 +60,11 @@ const Login = ({setAuth}) => {
                     onChange={e => onChange(e)}
                 />
                 <button 
-                    className='btn btn-success btn-block'
+                    className='btn btn-warning btn-block'
                 >Submit</button>
             </form>
-            <Link to='/register'>Register</Link>
+            <Link to='/register' className='text-muted w-100'>Register</Link>
+            </div>
         </Fragment>
     )
 }

@@ -1,5 +1,6 @@
 import React, {Fragment, useState} from "react";
 import {Link, Redirect} from 'react-router-dom';
+import '../styles.css'
 
 const Register = ({setAuth}) => {
 
@@ -66,9 +67,9 @@ const Register = ({setAuth}) => {
                     value={username}
                     onChange={e => onChange(e)}
                 />
-                <button className='btn btn-success btn-block'>Submit</button>
+                <button className='btn btn-warning btn-block'>Submit</button>
             </form>
-            <Link to='/login'>Login</Link>
+            <Link to='/login' className='text-muted w-100'>Login</Link>
         </Fragment>
     )
 }
