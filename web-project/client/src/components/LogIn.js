@@ -44,8 +44,8 @@ const Login = ({setAuth}) => {
 
     return (
         <Fragment>
-            <div className='log-reg-container'>
-            <h1 className='text-center my-5'>Login</h1>
+            <div className='container'>
+            <h1 className='text-center my-5 color-text'>Login</h1>
             <form onSubmit={onSubmitForm}>
                 <input 
                     type='email'
@@ -64,7 +64,7 @@ const Login = ({setAuth}) => {
                     onChange={e => onChange(e)}
                 />
                 <button 
-                    className='btn btn-warning btn-block'
+                    className='btn color-btn btn-block'
                 >Submit</button>
             </form>
             <Link to='/register' className='text-muted w-100'>Register</Link>

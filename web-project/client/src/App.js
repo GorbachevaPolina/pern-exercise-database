@@ -4,6 +4,7 @@ import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom
 import Dashboard from './components/Dashboard';
 import Login from './components/LogIn';
 import Register from './components/Register';
+import MainPage from './components/MainPage';
 
 function App() {
 
@@ -37,8 +38,13 @@ function App() {
   return (
     <Fragment>
       <Router>
-        <div className='container'>
+        <div >
           <Switch>
+            <Route 
+              exact
+              path='/'
+              render={props => <MainPage/>}
+            />
             <Route 
               exact 
               path='/login' 

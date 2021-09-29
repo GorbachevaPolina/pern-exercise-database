@@ -45,7 +45,8 @@ const Register = ({setAuth}) => {
 
     return (
         <Fragment>
-            <h1 className='text-center my-5'>Register</h1>
+            <div className='container'>
+            <h1 className='text-center my-5 color-text'>Register</h1>
             <form onSubmit={onSubmitForm}>
                 <input 
                     type='email' 
@@ -71,9 +72,10 @@ const Register = ({setAuth}) => {
                     value={username}
                     onChange={e => onChange(e)}
                 />
-                <button className='btn btn-warning btn-block'>Submit</button>
+                <button className='btn color-btn btn-block'>Submit</button>
             </form>
             <Link to='/login' className='text-muted w-100'>Login</Link>
+            </div>
         </Fragment>
     )
 }
