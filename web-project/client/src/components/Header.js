@@ -8,8 +8,9 @@ const Header = () => {
                     <li className='link'>
                         <a href='#'>BRAND NAME</a>
                     </li>
-                    <li className='link log-btn'>
-                        <a href='#'>Log In</a>
+                    <li className='link'>
+                        {/* <a href='#' className='log-btn'>Log In</a> */}
+                        <button className='log-btn'>Log In</button>
                     </li>
                 </ul>
                 </div>

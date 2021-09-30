@@ -14,8 +14,9 @@ body {
   color: #39b19b;
 }
 
-.color-btn {
+.color-btn, .back-green {
   background-color: #39b19b;
+  color: white;
 }
 
 .color-btn:hover {
@@ -60,7 +61,64 @@ header {
 
 .log-btn {
   float: right;
-  padding-right: 40px;
+  margin-right: 40px;
+  border: 2px solid white;
+  border-radius: 5px;
+  background-color: transparent;
+  color: white;
+}
+
+.log-btn:hover {
+  cursor: pointer;
+  color: #eaeaea;
+}
+
+.description-container {
+  max-width: 950px;
+}
+
+.section-container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.menu-descr-container {
+  padding: 0;
+}
+
+.description-section {
+  overflow: hidden;
+}
+
+.section {
+  padding: 0 20px;
+  width: 50%;
+  float: left;
+}
+
+.half-img {
+  padding: 0;
+}
+
+.food-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+}
+
+.description-text {
+  font-size: 1.2rem;
+}
+
+.back-green {
+  max-height: 1070px;
+  overflow: hidden;
 }
 
 
