@@ -75,6 +75,8 @@ const Register = ({setAuth}) => {
                 <button className='btn color-btn btn-block'>Submit</button>
             </form>
             <Link to='/login' className='text-muted w-100'>Login</Link>
+            <br />
+            <Link to='/' className='text-muted w-100'>На главную</Link>
             </div>
         </Fragment>
     )

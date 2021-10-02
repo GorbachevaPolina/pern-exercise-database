@@ -43,7 +43,7 @@ function App() {
             <Route 
               exact
               path='/'
-              render={props => <MainPage/>}
+              render={props => <MainPage {...props} isAuth={isAuthenticated} setAuth={setAuth}/>}
             />
             <Route 
               exact 

@@ -1,10 +1,10 @@
 import React from "react";
 import Header from "./Header";
 
-const MainPage = () => {
+const MainPage = ({isAuth, setAuth}) => {
     return (
         <div className='main-page-container'>
-            <Header />
+            <Header isAuth={isAuth} setAuth={setAuth}/>
             <img 
                 src='https://greenfortune.com/media/optimized/NL_HEX_Oudewater_2018_DB_025-2.jpg?w=1920&h=1080&fit=crop'
                 className='w-100'
@@ -36,6 +36,11 @@ const MainPage = () => {
                 <section className='menu-descr-container section-container'>
                     <div className='half-img section'>
                         <img src='https://greenkitchenstories.com/wp-content/uploads/2021/09/Mushroom-Caesar-01.jpg' className='food-img'/>
+                    </div>
+                    <div className='section section-text'>
+                        <p className='description-text menu-text'>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent imperdiet consectetur erat, et iaculis neque rhoncus et. Maecenas blandit nulla consequat ante efficitur, ac molestie sem rutrum. Nunc eros mi, dignissim vel purus ac, lacinia imperdiet dui. Cras mattis odio in ante sagittis vulputate. Quisque vestibulum mauris nisi, ut congue ante elementum quis. Vestibulum a elit risus. Donec nec lacinia urna, sit amet accumsan ligula.                        </p>
+                        <button className='menu-btn'>MENU</button>
                     </div>
                 </section>
             </div>

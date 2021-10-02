@@ -14,7 +14,7 @@ body {
   color: #39b19b;
 }
 
-.color-btn, .back-green {
+.color-btn, .back-green, .menu-btn {
   background-color: #39b19b;
   color: white;
 }
@@ -62,13 +62,12 @@ header {
 .log-btn {
   float: right;
   margin-right: 40px;
-  border: 2px solid white;
-  border-radius: 5px;
   background-color: transparent;
   color: white;
+  border: none;
 }
 
-.log-btn:hover {
+.log-btn:hover, .menu-btn:hover {
   cursor: pointer;
   color: #eaeaea;
 }
@@ -119,6 +118,35 @@ header {
 .back-green {
   max-height: 1070px;
   overflow: hidden;
+}
+
+.section-text {
+  padding: 50px 30px;
+  text-align: center;
+}
+
+.menu-btn {
+  border: solid 2px white;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.menu-text {
+  font-size: 20px;
+}
+
+@media (min-width: 1100px) {
+  .menu-text {
+    font-size: 25px;
+  }
+  .section-text {
+    padding: 100px 50px;
+  }
+  .menu-btn {
+    margin-top: 30px;
+    font-size: 20px;
+  }
 }
 
 

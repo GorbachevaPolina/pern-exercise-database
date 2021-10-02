@@ -68,6 +68,8 @@ const Login = ({setAuth}) => {
                 >Submit</button>
             </form>
             <Link to='/register' className='text-muted w-100'>Register</Link>
+            <br />
+            <Link to='/' className='text-muted w-100'>На главную</Link>
             </div>
         </Fragment>
     )
