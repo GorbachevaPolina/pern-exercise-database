@@ -59,12 +59,16 @@ header {
   color: #eaeaea;
 }
 
-.log-btn {
-  float: right;
-  margin-right: 40px;
+.log-btn, .profile-btn {
+  /* float: right; */
+  margin-right: 30px;
   background-color: transparent;
   color: white;
   border: none;
+}
+
+.btns-container {
+  float: right;
 }
 
 .log-btn:hover, .menu-btn:hover {

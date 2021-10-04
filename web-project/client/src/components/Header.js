@@ -15,12 +15,21 @@ const Header = ({isAuth, setAuth}) => {
                     <li className='link'>
                         <a href='/'>BRAND NAME</a>
                     </li>
+                    <span className='btns-container'>
                     <li className='link'>
                         {isAuth ? 
-                            <button className='log-btn'>Log Out</button> :
+                            <Link to='/profile' className='profile-btn'>Profile</Link> :
+                            null
+                        }
+
+                    </li>
+                    <li className='link'>
+                        {isAuth ? 
+                            <button className='log-btn' onClick={e => logout(e)}>Log Out</button> :
                             <Link to='/login' className='log-btn'>Log In</Link>
                         }
                     </li>
+                    </span>
                 </ul>
                 </div>
             </header>

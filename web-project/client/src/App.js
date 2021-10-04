@@ -5,6 +5,7 @@ import Dashboard from './components/Dashboard';
 import Login from './components/LogIn';
 import Register from './components/Register';
 import MainPage from './components/MainPage';
+import Profile from './components/Profile';
 
 function App() {
 
@@ -52,7 +53,7 @@ function App() {
                 !isAuthenticated ? (
                   <Login {...props} setAuth={setAuth}/>
                 ) : (
-                  <Redirect to='/dashboard' /> 
+                  <Redirect to='/' /> 
                 )
               }
             />
@@ -77,6 +78,11 @@ function App() {
                   <Redirect to='/login' /> 
                 )
               }
+            />
+            <Route 
+              exact
+              path='/profile'
+              render={props => <Profile />}
             />
           </Switch>
         </div>
