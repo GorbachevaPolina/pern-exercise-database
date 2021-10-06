@@ -1,4 +1,4 @@
-html, body {
+html, body, #root {
   width: 100%;
   position: fixed;
   overflow: auto;
@@ -14,7 +14,7 @@ body {
   color: #39b19b;
 }
 
-.color-btn, .back-green, .menu-btn {
+.color-btn, .back-green, .menu-btn, .sidebar-container {
   background-color: #39b19b;
   color: white;
 }
@@ -59,19 +59,27 @@ header {
   color: #eaeaea;
 }
 
-.log-btn, .profile-btn {
-  /* float: right; */
-  margin-right: 30px;
+.log-btn, .profile-btn, .logout-btn, .profile-btn-header {
+  /* float: right;
+  margin-right: 30px; */
   background-color: transparent;
   color: white;
   border: none;
+}
+
+.profile-btn {
+  display: block;
+}
+
+.log-btn, .profile-btn-header {
+  margin-right: 30px;
 }
 
 .btns-container {
   float: right;
 }
 
-.log-btn:hover, .menu-btn:hover {
+.log-btn:hover, .menu-btn:hover, .profile-btn:hover {
   cursor: pointer;
   color: #eaeaea;
 }
@@ -129,7 +137,7 @@ header {
   text-align: center;
 }
 
-.menu-btn {
+.menu-btn, .profile-btn {
   border: solid 2px white;
   border-radius: 5px;
   padding: 10px;
@@ -138,6 +146,10 @@ header {
 
 .menu-text {
   font-size: 20px;
+}
+
+.menu-btn {
+  display: block;
 }
 
 @media (min-width: 1100px) {
@@ -151,6 +163,60 @@ header {
     margin-top: 30px;
     font-size: 20px;
   }
+}
+
+.profile-container {
+  height: 100%;
+  overflow: hidden;
+}
+
+.sidebar-container {
+  height: 100%;
+  float: left;
+  width: 30%;
+  position: relative;
+  text-align: center;
+}
+
+.sidebar-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.sidebar-text {
+  font-size: 40px;
+}
+
+
+.logout-btn {
+  margin-top: 10px;
+}
+
+.logout-btn:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  color: #eaeaea;
+}
+
+@media (max-width: 700px) {
+  .sidebar-text {
+    font-size: 20px;
+  }
+  .profile-btn, .logout-btn {
+    font-size: 15px;
+  }
+}
+
+.fav-container {
+  float: left;
+}
+
+.fav-title {
+  color: #39b19b;
+  margin-top: 20px;
+  margin-left: 40px;
 }
 
 

@@ -5,7 +5,7 @@ import Dashboard from './components/Dashboard';
 import Login from './components/LogIn';
 import Register from './components/Register';
 import MainPage from './components/MainPage';
-import Profile from './components/Profile';
+import Menu from './components/Menu';
 
 function App() {
 
@@ -39,7 +39,7 @@ function App() {
   return (
     <Fragment>
       <Router>
-        <div >
+        
           <Switch>
             <Route 
               exact
@@ -53,7 +53,7 @@ function App() {
                 !isAuthenticated ? (
                   <Login {...props} setAuth={setAuth}/>
                 ) : (
-                  <Redirect to='/' /> 
+                  <Redirect to='/dashboard' /> 
                 )
               }
             />
@@ -81,11 +81,11 @@ function App() {
             />
             <Route 
               exact
-              path='/profile'
-              render={props => <Profile />}
+              path='/menu'
+              render={props => <Menu {...props} isAuth={isAuthenticated}/>}
             />
           </Switch>
-        </div>
+        
       </Router>
     </Fragment>
   );

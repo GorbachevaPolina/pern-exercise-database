@@ -18,7 +18,7 @@ const Header = ({isAuth, setAuth}) => {
                     <span className='btns-container'>
                     <li className='link'>
                         {isAuth ? 
-                            <Link to='/profile' className='profile-btn'>Profile</Link> :
+                            <Link to='/dashboard' className='profile-btn-header'>Profile</Link> :
                             null
                         }
 

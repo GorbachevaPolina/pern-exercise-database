@@ -1,4 +1,5 @@
 import React, {Fragment, useEffect, useState} from "react";
+import {Link} from 'react-router-dom';
 
 const Dashboard = ({setAuth}) => {
 
@@ -32,10 +33,23 @@ const Dashboard = ({setAuth}) => {
     }, [])
 
     return (
-        <Fragment>
-            <h1>Dashboard {username}</h1>
-            <button className='btn btn-primary' onClick={e => logout(e)}>Logout</button>
-        </Fragment>
+        <div className='profile-container'>
+            {/* <h1>Dashboard {username}</h1>
+            <button className='btn btn-primary' onClick={e => logout(e)}>Logout</button> */}
+            <div className='sidebar-container'>
+                <div className='sidebar-content'>
+                <p className='sidebar-text'>
+                    WELCOME, <br /> {username}
+                </p>
+                <Link to='/' className='profile-btn'>Main Page</Link>
+                <Link to='/menu' className='profile-btn'>Menu</Link>
+                <button className='logout-btn' onClick={e => logout(e)}>Log Out</button>
+                </div>
+            </div>
+            <div className='fav-container'>
+                <h1 className='fav-title'>Избранное</h1>
+            </div>
+        </div>
     )
 }
 
