@@ -1,5 +1,6 @@
 import React, {Fragment, useEffect, useState} from "react";
 import {Link} from 'react-router-dom';
+import DashboardFavourite from "./DashboardFavourite";
 
 const Dashboard = ({setAuth}) => {
 
@@ -48,6 +49,7 @@ const Dashboard = ({setAuth}) => {
             </div>
             <div className='fav-container'>
                 <h1 className='fav-title'>Избранное</h1>
+                <DashboardFavourite />
             </div>
         </div>
     )

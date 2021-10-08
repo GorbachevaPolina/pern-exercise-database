@@ -167,7 +167,7 @@ header {
 
 .profile-container {
   height: 100%;
-  overflow: hidden;
+  overflow: auto;
 }
 
 .sidebar-container {
@@ -210,7 +210,9 @@ header {
 }
 
 .fav-container {
-  float: left;
+  /* float: left; */
+  overflow: auto;
+  height: 100%;
 }
 
 .fav-title {
@@ -218,6 +220,31 @@ header {
   margin-top: 20px;
   margin-left: 40px;
 }
+
+.fav-img {
+  width: 100%;
+}
+
+.fav-img-container {
+  /* display: flex;
+  justify-content: center; */
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+}
+
+.fav-menu-item {
+  width: 100%;
+  /* float: left; */
+  position: relative;
+  padding: 20px;
+}
+
+
+
+
+
+
+
 
 
 
