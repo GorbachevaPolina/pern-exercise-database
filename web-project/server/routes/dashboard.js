@@ -16,4 +16,17 @@ router.get("/", authorization, async (req, res) => {
     }
 })
 
+router.get("/items", async (req, res) => {
+    try {
+        const items = await pool.query(
+            "SELECT * FROM site_items"
+        )
+
+        res.json(items.rows);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json("Server Error");
+    }
+})
+
 module.exports = router;
