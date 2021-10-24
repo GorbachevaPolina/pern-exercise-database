@@ -29,4 +29,18 @@ router.get("/items", async (req, res) => {
     }
 })
 
+router.get("/fav", authorization, async (req, res) => {
+    try {
+        const dishes = await pool.query(
+            "SELECT * FROM site_items WHERE item_id IN (SELECT item_id FROM favourites WHERE user_id=$1);",
+            [req.user]
+        ) 
+
+        res.json(dishes.rows)
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json("Server Error");
+    }
+})
+
 module.exports = router;

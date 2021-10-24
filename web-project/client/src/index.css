@@ -221,8 +221,23 @@ header {
   margin-left: 40px;
 }
 
+.img-box {
+  position: relative;
+  overflow: hidden;
+  height: 300px;
+  border-radius: 5px;
+}
+
 .fav-img {
   width: 100%;
+  border-radius: 5px;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  max-height: 300px;
+  object-fit: cover;
 }
 
 .fav-img-container {
@@ -230,6 +245,7 @@ header {
   justify-content: center; */
   display: grid;
   grid-template-columns: repeat(2, auto);
+  padding: 12px 20px;
 }
 
 .fav-menu-item {
@@ -238,6 +254,26 @@ header {
   position: relative;
   padding: 20px;
 }
+
+.fav-item-info {
+  padding-top: 10px;
+}
+
+@media (max-width: 1000px) {
+  .img-box {
+    height: 200px;
+  }
+}
+
+@media (max-width: 700px) {
+  .img-box {
+    height: 100px;
+  }
+  .fav-title {
+    font-size: 1.5rem;
+  }
+}
+
 
 
 
