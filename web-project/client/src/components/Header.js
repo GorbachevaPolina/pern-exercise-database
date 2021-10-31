@@ -1,5 +1,6 @@
 import React from "react"; 
 import { Link } from "react-router-dom";
+import logo from '../fitness_center_white_24dp.svg'
 
 const Header = ({isAuth, setAuth}) => {
     const logout = (e) => {
@@ -13,7 +14,7 @@ const Header = ({isAuth, setAuth}) => {
              <div className='header-container'>
                 <ul className='links'>
                     <li className='link'>
-                        <a href='/'>BRAND NAME</a>
+                        <a href='/'><img src={logo}></img></a>
                     </li>
                     <span className='btns-container'>
                     <li className='link'>

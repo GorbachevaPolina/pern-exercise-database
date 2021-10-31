@@ -6,10 +6,22 @@ const MainPage = ({isAuth, setAuth}) => {
     return (
         <div className='main-page-container'>
             <Header isAuth={isAuth} setAuth={setAuth}/>
-            <img 
-                src='https://greenfortune.com/media/optimized/NL_HEX_Oudewater_2018_DB_025-2.jpg?w=1920&h=1080&fit=crop'
+            {/* <img 
+                src='https://p4.wallpaperbetter.com/wallpaper/63/681/258/sports-gym-wallpaper-preview.jpg'
                 className='w-100'
-            />
+            /> */}
+            <div className='hero'>
+                <p className='hero-text'>
+                    База физических упражнений.
+                    <br />
+                    Начни работу над собой уже сейчас 
+                </p>
+                {
+                    isAuth ?
+                    <Link to='/dashboard' className='profile-btn main-btn'>Favourite Exercises</Link> :
+                    <Link to='/register' className='profile-btn main-btn'>Register</Link>
+                }
+            </div>
 
             <section className='description-container section-container'>
                 <div className='description-section'>
