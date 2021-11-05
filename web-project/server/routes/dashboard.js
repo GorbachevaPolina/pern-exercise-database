@@ -16,23 +16,23 @@ router.get("/", authorization, async (req, res) => {
     }
 })
 
-router.get("/items", async (req, res) => {
-    try {
-        const items = await pool.query(
-            "SELECT * FROM site_items"
-        )
+// router.get("/items", async (req, res) => {
+//     try {
+//         const items = await pool.query(
+//             "SELECT * FROM site_items"
+//         )
 
-        res.json(items.rows);
-    } catch (err) {
-        console.error(err.message);
-        res.status(500).json("Server Error");
-    }
-})
+//         res.json(items.rows);
+//     } catch (err) {
+//         console.error(err.message);
+//         res.status(500).json("Server Error");
+//     }
+// })
 
 router.get("/fav", authorization, async (req, res) => {
     try {
         const dishes = await pool.query(
-            "SELECT * FROM site_items WHERE item_id IN (SELECT item_id FROM favourites WHERE user_id=$1);",
+            "SELECT * FROM exercises WHERE exercise_id IN (SELECT exercise_id FROM favourites WHERE user_id=$1);",
             [req.user]
         ) 
 

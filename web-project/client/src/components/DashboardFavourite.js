@@ -2,10 +2,10 @@ import React, {useEffect, useState} from "react";
 
 const DashboardFavourite = () => {
 
-    const [dishes, setDishes] = useState([]);
+    const [exercises, setExercises] = useState([]);
 
 
-    async function getDishes() {
+    async function getExercises() {
         try {
             const response = await fetch(
                 'http://localhost:5000/dashboard/fav', {
@@ -16,19 +16,19 @@ const DashboardFavourite = () => {
 
             const parseRes = await response.json();
             
-            setDishes(parseRes)
+            setExercises(parseRes)
         } catch (err) {
             console.error(err);
         }
-    }
+    } 
 
     useEffect(() => {
-        getDishes();
+        getExercises();
     }, [])
 
     return (
         <div className='fav-img-container'>
-            {dishes.map(function(item) {
+            {exercises.map(function(item) {
                     return (
                         <article className='fav-menu-item'>
                             <div className='img-box'>
@@ -40,7 +40,8 @@ const DashboardFavourite = () => {
                             </div>
                         </article>
                     )
-                })}
+                })
+                }
         </div> 
     )
 }

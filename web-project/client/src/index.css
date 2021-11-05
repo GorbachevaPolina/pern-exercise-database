@@ -251,7 +251,7 @@ header {
 .img-box {
   position: relative;
   overflow: hidden;
-  height: 300px;
+  height: 240px;
   border-radius: 5px;
 }
 
@@ -286,6 +286,19 @@ header {
   padding-top: 10px;
 }
 
+.catalog-container {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.catalog-container h1 {
+  margin-left: 40px;
+  color:#6B2D29;
+  margin-top: 80px; 
+  margin-bottom: -20px;
+}
+
 @media (max-width: 1000px) {
   .img-box {
     height: 200px;
@@ -306,6 +319,7 @@ header {
     font-size: 1.5rem;
   }
 }
+
 
 
 

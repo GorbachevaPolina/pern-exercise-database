@@ -43,7 +43,7 @@ const Dashboard = ({setAuth}) => {
                     WELCOME, <br /> {username}
                 </p>
                 <Link to='/' className='profile-btn'>Main Page</Link>
-                <Link to='/menu' className='profile-btn'>Menu</Link>
+                <Link to='/catalog' className='profile-btn'>Menu</Link>
                 <button className='logout-btn' onClick={e => logout(e)}>Log Out</button>
                 </div>
             </div>

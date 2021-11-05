@@ -13,7 +13,10 @@ app.use(express.json());
 app.use("/auth", require("./routes/authentication"));
 
 //dashboard
-app.use("/dashboard", require("./routes/dashboard"))
+app.use("/dashboard", require("./routes/dashboard"));
+
+//catalog
+app.use("/catalog", require("./routes/catalog"));
 
 app.listen(5000, () => {
     console.log("server has started on port 5000");

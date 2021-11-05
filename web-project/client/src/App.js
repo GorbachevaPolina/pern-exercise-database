@@ -5,7 +5,7 @@ import Dashboard from './components/Dashboard';
 import Login from './components/LogIn';
 import Register from './components/Register';
 import MainPage from './components/MainPage';
-import Menu from './components/Menu';
+import Catalog from './components/Catalog';
 
 function App() {
 
@@ -81,8 +81,8 @@ function App() {
             />
             <Route 
               exact
-              path='/menu'
-              render={props => <Menu {...props} isAuth={isAuthenticated}/>}
+              path='/catalog'
+              render={props => <Catalog {...props} isAuth={isAuthenticated} setAuth={setAuth}/>}
             />
           </Switch>
         

@@ -53,7 +53,7 @@ const MainPage = ({isAuth, setAuth}) => {
                     <div className='section section-text'>
                         <p className='description-text menu-text'>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent imperdiet consectetur erat, et iaculis neque rhoncus et. Maecenas blandit nulla consequat ante efficitur, ac molestie sem rutrum. Nunc eros mi, dignissim vel purus ac, lacinia imperdiet dui. Cras mattis odio in ante sagittis vulputate. Quisque vestibulum mauris nisi, ut congue ante elementum quis. Vestibulum a elit risus. Donec nec lacinia urna, sit amet accumsan ligula.                        </p>
-                        <Link to='/menu' className='menu-btn'>MENU</Link>
+                        <Link to='/catalog' className='menu-btn'>MENU</Link>
                     </div>
                 </section>
             </div>
