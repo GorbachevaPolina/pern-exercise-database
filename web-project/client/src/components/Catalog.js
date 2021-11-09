@@ -1,5 +1,6 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useState, Fragment} from "react";
 import Header from "./Header";
+import FullInfoModule from "./FullInfoModule";
 
 const Catalog = ({isAuth, setAuth}) => {
 
@@ -28,6 +29,14 @@ const Catalog = ({isAuth, setAuth}) => {
         getExercises();
     }, [])
 
+    // function displayFullInfo() {
+    //     return(
+    //         <div>
+    //             <FullInfoModule />
+    //         </div>
+    //     )
+    // }
+
 
     return (
         <div className='catalog-container'>
@@ -36,7 +45,7 @@ const Catalog = ({isAuth, setAuth}) => {
             <div className='fav-img-container'>
                 {exercises.map(function(item) {
                         return (
-                            <article className='fav-menu-item'>
+                            <article className='fav-item' key={item.exercise_id}>
                                 <div className='img-box'>
                                 <img
                                 src={'https://img.youtube.com/vi/' + item.content.slice(-11) + '/maxresdefault.jpg'}  className='fav-img'/>
@@ -44,6 +53,7 @@ const Catalog = ({isAuth, setAuth}) => {
                                 <div className='fav-item-info'>
                                     <h4>{item.name}</h4>
                                 </div>
+                                <FullInfoModule item={item}/>
                             </article>
                         )
                     })
