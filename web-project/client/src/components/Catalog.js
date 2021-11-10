@@ -29,14 +29,6 @@ const Catalog = ({isAuth, setAuth}) => {
         getExercises();
     }, [])
 
-    // function displayFullInfo() {
-    //     return(
-    //         <div>
-    //             <FullInfoModule />
-    //         </div>
-    //     )
-    // }
-
 
     return (
         <div className='catalog-container'>
@@ -53,7 +45,7 @@ const Catalog = ({isAuth, setAuth}) => {
                                 <div className='fav-item-info'>
                                     <h4>{item.name}</h4>
                                 </div>
-                                <FullInfoModule item={item}/>
+                                <FullInfoModule item={item} isAuth={isAuth} isCatalog={true}/>
                             </article>
                         )
                     })

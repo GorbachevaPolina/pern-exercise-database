@@ -16,18 +16,30 @@ router.get("/", authorization, async (req, res) => {
     }
 })
 
-// router.get("/items", async (req, res) => {
-//     try {
-//         const items = await pool.query(
-//             "SELECT * FROM site_items"
-//         )
+router.post("/fav", authorization, async (req, res) => {
+    try {
+        const {exercise_id} = req.body;
 
-//         res.json(items.rows);
-//     } catch (err) {
-//         console.error(err.message);
-//         res.status(500).json("Server Error");
-//     }
-// })
+        const exercise = await pool.query(
+            "SELECT * FROM favourites WHERE user_id = $1 AND exercise_id = $2",
+            [req.user, exercise_id]
+        );
+
+        if (exercise.rows.length !== 0) {
+            return res.status(401).json("Exercise already added to favourites");
+        };
+
+        const newExercise = await pool.query(
+            "INSERT INTO favourites (user_id, exercise_id) VALUES ($1, $2) RETURNING *",
+            [req.user, exercise_id]
+        )
+
+        res.json(newExercise.rows[0]);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send("Server Error"); 
+    }
+})
 
 router.get("/fav", authorization, async (req, res) => {
     try {
@@ -37,6 +49,21 @@ router.get("/fav", authorization, async (req, res) => {
         ) 
 
         res.json(dishes.rows)
+    } catch (err) { 
+        console.error(err.message);
+        res.status(500).json("Server Error");
+    }
+})
+
+router.delete("/fav/:id", authorization, async(req, res) => {
+    try {
+        const {id} = req.params;
+        const deleteExercise = await pool.query(
+            "DELETE FROM favourites WHERE exercise_id = $1 AND user_id = $2",
+            [id, req.user]
+        );
+
+        res.json('Exercise was deleted');
     } catch (err) {
         console.error(err.message);
         res.status(500).json("Server Error");
