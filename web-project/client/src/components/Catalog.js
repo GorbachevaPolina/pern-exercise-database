@@ -1,10 +1,28 @@
 import React, {useEffect, useState, Fragment} from "react";
 import Header from "./Header";
 import FullInfoModule from "./FullInfoModule";
+import CategoryModal from "./CategoryModal";
 
 const Catalog = ({isAuth, setAuth}) => {
 
     const [exercises, setExercises] = useState([]);
+    const [categories, setCategories] = useState([]);
+
+    async function getCategories() {
+        try {
+            const categories = await fetch(
+                'http://localhost:5000/catalog/categories', {
+                    method: 'GET'
+                }
+            )
+
+            const parseRes = await categories.json();
+
+            setCategories(parseRes);
+        } catch (err) {
+            console.error(err);
+        }
+    }
 
 
     async function getExercises() {
@@ -17,7 +35,6 @@ const Catalog = ({isAuth, setAuth}) => {
             )
 
             const parseRes = await response.json();
-
             
             setExercises(parseRes)
         } catch (err) {
@@ -27,6 +44,7 @@ const Catalog = ({isAuth, setAuth}) => {
 
     useEffect(() => {
         getExercises();
+        getCategories();
     }, [])
 
 
@@ -34,6 +52,18 @@ const Catalog = ({isAuth, setAuth}) => {
         <div className='catalog-container'>
             <Header isAuth={isAuth} setAuth={setAuth}/>
             <h1>Catalog</h1>
+            <div className='category-container'>
+                {/* {
+                    category_groups.map(function(category_item) {
+                        return (
+                        <button className='category-group'>
+                            {category_item.category_group}
+                        </button>
+                        )
+                    })
+                } */}
+                <CategoryModal categories={categories}/>
+            </div>
             <div className='fav-img-container'>
                 {exercises.map(function(item) {
                         return (

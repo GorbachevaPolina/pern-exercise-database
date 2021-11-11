@@ -37,7 +37,7 @@ body {
   color: #6B2D29;
 }
 
-.color-btn, .back-green, .menu-btn, .sidebar-container, .open-modal-btn {
+.color-btn, .back-green, .menu-btn, .sidebar-container, .open-modal-btn, .category-group {
   background-color: #6B2D29;
   color: white;
 }
@@ -106,7 +106,7 @@ header {
   float: right;
 }
 
-.log-btn:hover, .menu-btn:hover, .profile-btn:hover, .open-modal-btn:hover {
+.log-btn:hover, .menu-btn:hover, .profile-btn:hover, .open-modal-btn:hover, .category-group:hover {
   cursor: pointer;
   color: #eaeaea;
 }
@@ -407,6 +407,19 @@ header {
 iframe {
   border: none;
   border-radius: 5px;
+}
+
+.category-container {
+  overflow: hidden;
+  margin-top: 40px;
+  margin-left: 40px;
+}
+
+.category-group {
+  margin-right: 20px;
+  border: 2px solid white;
+  border-radius: 5px;
+  padding: 5px;
 }
 
 @media (max-width: 1000px) {
