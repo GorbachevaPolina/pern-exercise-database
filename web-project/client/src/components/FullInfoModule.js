@@ -1,9 +1,10 @@
-import React, {Fragment, useState} from "react";
+import React, {Fragment, useState, useEffect} from "react";
 
 const FullInfoModule = ({item, isAuth, isCatalog}) => {
 
     const [show, setShow] = useState('modal-hidden');
     const [isCorrect, setCorrect] = useState(null);
+    const [categories, setCategories] = useState([]);
 
     function showModal() {
         setShow('modal-show');
@@ -54,6 +55,28 @@ const FullInfoModule = ({item, isAuth, isCatalog}) => {
         }
     }
 
+    const getCategories = async () => {
+        try {
+            const response = await fetch(
+                'http://localhost:5000/catalog/category', {
+                    method: 'GET',
+                    headers: {exercise_id: item.exercise_id}
+                }
+            )
+
+            const parseRes = await response.json();
+            
+            setCategories(parseRes)
+        } catch (err) {
+            console.error(err);
+        }
+    }
+
+    useEffect(() => {
+        getCategories();
+        console.log(categories)
+    }, [])
+
     return (
         <Fragment>
             <button className='open-modal-btn' onClick={showModal}>Open</button>
@@ -66,6 +89,18 @@ const FullInfoModule = ({item, isAuth, isCatalog}) => {
                 <div className='modal-content'>
                     <iframe src={item.content} className='modal-exercise'></iframe>
                     <p>{item.description}</p>
+                    <p>Categories:</p>
+                    <div className='categories-inline'>
+                    {
+                        categories.map(function(category) {
+                            return (
+                                <div className='category-display'>
+                                    {category.category_name}
+                                </div>
+                            )
+                        })
+                    }
+                    </div>
                     {
                         (isAuth && isCatalog) ?
                         <button className='open-modal-btn' onClick={addExerciseToFav}>Add to Favourites</button> :
@@ -73,7 +108,7 @@ const FullInfoModule = ({item, isAuth, isCatalog}) => {
                         <button className='open-modal-btn' onClick={() => deleteExerciseFromFavourite(item.exercise_id)}>Delete</button> : null
                     }
                     {
-                        isCatalog ?
+                        (isCatalog && isCorrect) ?
                         <p className='middle'>{isCorrect}</p> :
                         null
                     }

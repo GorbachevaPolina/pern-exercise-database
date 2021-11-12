@@ -3,6 +3,7 @@ import React, {Fragment, useState, useEffect} from "react";
 const CategoryModal = ({categories1, categories2, categories3}) => {
 
     const [show, setShow] = useState('modal-hidden');
+    // const [isChosen, setChosen] = useState('')
 
     function showModal() {
         setShow('modal-show');
@@ -11,6 +12,10 @@ const CategoryModal = ({categories1, categories2, categories3}) => {
     function hideModal() {
         setShow('modal-hidden');
     }
+
+    // function chooseCategory() {
+    //     setChosen('chosen');
+    // }
 
     return (
         <Fragment>
@@ -22,8 +27,8 @@ const CategoryModal = ({categories1, categories2, categories3}) => {
                 </div>
 
                 <div className='modal-content'>
-                    <p>Click categories you'd like to choose: </p>
-                    <div className='categories-inline'>
+                    <p className='modal-p'>Click categories you'd like to choose: </p>
+                    <div className='categories-inline-modal'>
                         <div className='categories'>
                             <p>Type:</p>
                         {

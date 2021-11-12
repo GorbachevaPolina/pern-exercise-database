@@ -102,7 +102,7 @@ const Catalog = ({isAuth, setAuth}) => {
                     })
                 } */}
                 <CategoryModal categories1={categories1} categories2={categories2} categories3={categories3}/>
-                {console.log(categories1)}
+
             </div>
             <div className='fav-img-container'>
                 {exercises.map(function(item) {

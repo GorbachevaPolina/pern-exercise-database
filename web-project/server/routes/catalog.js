@@ -30,20 +30,20 @@ router.get("/categories", async (req, res) => {
     }
 })
 
-// router.get("/category", async (req, res) => {
-//     try {
-//         const category_group = req.header('category_group');
+router.get("/category", async (req, res) => {
+    try {
+        const exercise_id = req.header('exercise_id');
 
-//         const category_groups = await pool.query(
-//             "SELECT category_name FROM categories WHERE category_group = $1",
-//             [category_group]
-//         ) 
+        const categories = await pool.query(
+            "SELECT category_name FROM categories JOIN category_exercise USING(category_id) WHERE category_exercise.exercise_id = $1",
+            [exercise_id]
+        ) 
 
-//         res.json(category_groups.rows)
-//     } catch (err) {
-//         console.error(err.message);
-//         res.status(500).json("Server Error");
-//     }
-// })
+        res.json(categories.rows)
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json("Server Error");
+    }
+})
 
 module.exports = router;
