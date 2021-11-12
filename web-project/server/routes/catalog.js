@@ -17,8 +17,11 @@ router.get("/", async (req, res) => {
 
 router.get("/categories", async (req, res) => {
     try {
+        const group = req.header('group')
+
         const categories = await pool.query(
-            "SELECT distinct category_name FROM categories"
+            "SELECT distinct category_name FROM categories WHERE category_group = $1",
+            [group]
         )
         res.json(categories.rows)
     } catch (err) {

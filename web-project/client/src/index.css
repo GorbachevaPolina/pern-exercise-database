@@ -422,6 +422,29 @@ iframe {
   padding: 5px;
 }
 
+.categories-inline {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.categories {
+  padding: 15px;
+}
+
+.categories p {
+  padding: 0;
+}
+
+.single-category {
+  padding-bottom: 10px;
+}
+
+.single-category:hover {
+  cursor: pointer;
+  color:#6B2D29;
+  text-decoration: underline;
+}
+
 @media (max-width: 1000px) {
   .img-box {
     height: 200px;

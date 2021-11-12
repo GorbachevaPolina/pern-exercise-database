@@ -6,19 +6,56 @@ import CategoryModal from "./CategoryModal";
 const Catalog = ({isAuth, setAuth}) => {
 
     const [exercises, setExercises] = useState([]);
-    const [categories, setCategories] = useState([]);
+    const [categories1, setCategories1] = useState([]);
+    const [categories2, setCategories2] = useState([]);
+    const [categories3, setCategories3] = useState([]);
 
-    async function getCategories() {
+    async function getCategories1() {
         try {
             const categories = await fetch(
                 'http://localhost:5000/catalog/categories', {
-                    method: 'GET'
+                    method: 'GET',
+                    headers: {group: 'type'}
                 }
             )
 
             const parseRes = await categories.json();
 
-            setCategories(parseRes);
+            setCategories1(parseRes);
+        } catch (err) {
+            console.error(err);
+        }
+    }
+
+    async function getCategories2() {
+        try {
+            const categories = await fetch(
+                'http://localhost:5000/catalog/categories', {
+                    method: 'GET',
+                    headers: {group: 'muscle group'}
+                }
+            )
+
+            const parseRes = await categories.json();
+
+            setCategories2(parseRes);
+        } catch (err) {
+            console.error(err);
+        }
+    }
+
+    async function getCategories3() {
+        try {
+            const categories = await fetch(
+                'http://localhost:5000/catalog/categories', {
+                    method: 'GET',
+                    headers: {group: 'equipment'}
+                }
+            )
+
+            const parseRes = await categories.json();
+
+            setCategories3(parseRes);
         } catch (err) {
             console.error(err);
         }
@@ -44,7 +81,9 @@ const Catalog = ({isAuth, setAuth}) => {
 
     useEffect(() => {
         getExercises();
-        getCategories();
+        getCategories1();
+        getCategories2();
+        getCategories3();
     }, [])
 
 
@@ -62,7 +101,8 @@ const Catalog = ({isAuth, setAuth}) => {
                         )
                     })
                 } */}
-                <CategoryModal categories={categories}/>
+                <CategoryModal categories1={categories1} categories2={categories2} categories3={categories3}/>
+                {console.log(categories1)}
             </div>
             <div className='fav-img-container'>
                 {exercises.map(function(item) {
