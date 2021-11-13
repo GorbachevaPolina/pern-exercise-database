@@ -1,9 +1,9 @@
 import React, {Fragment, useState, useEffect} from "react";
 
-const CategoryModal = ({categories1, categories2, categories3}) => {
+const CategoryModal = ({categories, setChosen, chosen}) => {
 
     const [show, setShow] = useState('modal-hidden');
-    // const [isChosen, setChosen] = useState('')
+    // const [chosen, setChosen] = useState([])
 
     function showModal() {
         setShow('modal-show');
@@ -13,9 +13,15 @@ const CategoryModal = ({categories1, categories2, categories3}) => {
         setShow('modal-hidden');
     }
 
-    // function chooseCategory() {
-    //     setChosen('chosen');
-    // }
+    function addCategory(e) {
+        setChosen([...chosen, e.currentTarget.id])
+    }
+
+    function removeCategory(e) {
+        setChosen(chosen.filter(function(item) {
+            return item !== e.currentTarget.parentNode.firstChild.id
+        }))
+    }
 
     return (
         <Fragment>
@@ -32,12 +38,13 @@ const CategoryModal = ({categories1, categories2, categories3}) => {
                         <div className='categories'>
                             <p>Type:</p>
                         {
-                            categories1.map(function(category) {
-                                return (
-                                    <div className='single-category'>
-                                        {category.category_name}
-                                    </div>
-                                )
+                            categories.map(function(category) {
+                                if (category.category_group === 'type')
+                                    return (
+                                        <div id={category.category_name} className='single-category' onClick={addCategory}>
+                                            {category.category_name}
+                                        </div>
+                                    )
                             })
                         }
                         </div>
@@ -45,12 +52,13 @@ const CategoryModal = ({categories1, categories2, categories3}) => {
                         <div className='categories'>
                         <p>Muscle group: </p>
                         {
-                            categories2.map(function(category) {
-                                return (
-                                    <div className='single-category'>
-                                        {category.category_name}
-                                    </div>
-                                )
+                            categories.map(function(category) {
+                                if (category.category_group === 'muscle group')
+                                    return (
+                                        <div id={category.category_name} className='single-category' onClick={addCategory}>
+                                            {category.category_name}
+                                        </div>
+                                    )
                             })
                         }
                         </div>
@@ -58,15 +66,32 @@ const CategoryModal = ({categories1, categories2, categories3}) => {
                         <div className='categories'>
                         <p>Equipment:</p>
                         {
-                            categories3.map(function(category) {
+                            categories.map(function(category) {
+                                if (category.category_group === 'equipment')
+                                    return (
+                                        <div id={category.category_name} className='single-category' onClick={addCategory}>
+                                            {category.category_name}
+                                        </div>
+                                    )
+                            })
+                        }
+                        </div>
+                    </div>
+
+                    <div className='chosen-categories'>
+                        <p>Chosen categories: </p>
+                        {
+                            chosen.filter(function onlyUnique(value, index, self) {
+                                    return self.indexOf(value) === index;
+                                  }).map(function(item) {
                                 return (
-                                    <div className='single-category'>
-                                        {category.category_name}
+                                    <div>
+                                        <span id={item}>{item}</span>
+                                        <button type="button" className="close" onClick={removeCategory}>&times;</button>
                                     </div>
                                 )
                             })
                         }
-                        </div>
                     </div>
                 </div>
             </div>

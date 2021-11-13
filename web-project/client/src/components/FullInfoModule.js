@@ -74,7 +74,6 @@ const FullInfoModule = ({item, isAuth, isCatalog}) => {
 
     useEffect(() => {
         getCategories();
-        console.log(categories)
     }, [])
 
     return (

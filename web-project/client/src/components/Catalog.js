@@ -2,88 +2,52 @@ import React, {useEffect, useState, Fragment} from "react";
 import Header from "./Header";
 import FullInfoModule from "./FullInfoModule";
 import CategoryModal from "./CategoryModal";
+import CatalogExercises from "./CatalogExercises";
 
 const Catalog = ({isAuth, setAuth}) => {
 
-    const [exercises, setExercises] = useState([]);
-    const [categories1, setCategories1] = useState([]);
-    const [categories2, setCategories2] = useState([]);
-    const [categories3, setCategories3] = useState([]);
+    // const [exercises, setExercises] = useState([]);
+    const [categories, setCategories] = useState([]);
+    const [chosen, setChosen] = useState([])
 
-    async function getCategories1() {
+    async function getCategories() {
         try {
             const categories = await fetch(
                 'http://localhost:5000/catalog/categories', {
-                    method: 'GET',
-                    headers: {group: 'type'}
+                    method: 'GET'
                 }
             )
 
             const parseRes = await categories.json();
 
-            setCategories1(parseRes);
+            setCategories(parseRes);
         } catch (err) {
             console.error(err);
         }
     }
 
-    async function getCategories2() {
-        try {
-            const categories = await fetch(
-                'http://localhost:5000/catalog/categories', {
-                    method: 'GET',
-                    headers: {group: 'muscle group'}
-                }
-            )
+    // async function getExercises() {
+    //     try {
+    //         // console.log(categories)
+    //         const response = await fetch(
+    //             'http://localhost:5000/catalog/', {
+    //                 method: 'GET',
+    //                 headers: {categories: categories}
+    //             }
+    //         )
 
-            const parseRes = await categories.json();
-
-            setCategories2(parseRes);
-        } catch (err) {
-            console.error(err);
-        }
-    }
-
-    async function getCategories3() {
-        try {
-            const categories = await fetch(
-                'http://localhost:5000/catalog/categories', {
-                    method: 'GET',
-                    headers: {group: 'equipment'}
-                }
-            )
-
-            const parseRes = await categories.json();
-
-            setCategories3(parseRes);
-        } catch (err) {
-            console.error(err);
-        }
-    }
-
-
-    async function getExercises() {
-        try {
-            const response = await fetch(
-                'http://localhost:5000/catalog/', {
-                    method: 'GET',
-                    headers: {token: localStorage.token}
-                }
-            )
-
-            const parseRes = await response.json();
+    //         const parseRes = await response.json();
             
-            setExercises(parseRes)
-        } catch (err) {
-            console.error(err);
-        }
-    } 
+    //         setExercises(parseRes)
+    //     } catch (err) {
+    //         console.error(err);
+    //     }
+    // } 
+    
 
     useEffect(() => {
-        getExercises();
-        getCategories1();
-        getCategories2();
-        getCategories3();
+        getCategories();
+        // getExercises();
     }, [])
 
 
@@ -101,10 +65,12 @@ const Catalog = ({isAuth, setAuth}) => {
                         )
                     })
                 } */}
-                <CategoryModal categories1={categories1} categories2={categories2} categories3={categories3}/>
+                {/* <CategoryModal categories1={categories1} categories2={categories2} categories3={categories3}/> */}
+                <CategoryModal categories={categories} setChosen={setChosen} chosen={chosen}/>
 
             </div>
-            <div className='fav-img-container'>
+            <CatalogExercises isAuth={isAuth} setAuth={setAuth} categories={categories} chosen={chosen}/>
+            {/* <div className='fav-img-container'>
                 {exercises.map(function(item) {
                         return (
                             <article className='fav-item' key={item.exercise_id}>
@@ -120,7 +86,8 @@ const Catalog = ({isAuth, setAuth}) => {
                         )
                     })
                 }
-            </div> 
+            </div>  */}
+            
         </div>
     )
 }
