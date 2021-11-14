@@ -23,9 +23,9 @@ router.post("/register", validInfo, async (req, res) => {
         const saltRound = 10;
         const salt = await bcrypt.genSalt(saltRound);
         const bcryptPassword = await bcrypt.hash(password, salt);
-
+ 
         const newUser = await pool.query(
-            "INSERT INTO users (username, email, password) VALUES ($1, $2, $3) RETURNING *",
+            "INSERT INTO users (username, email, password, role) VALUES ($1, $2, $3, 'default') RETURNING *",
             [username, email, bcryptPassword]
         );
 

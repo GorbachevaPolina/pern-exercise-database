@@ -46,7 +46,7 @@ const CatalogExercises = ({isAuth, setAuth, categories, chosen}) => {
                             <article className='fav-item' key={item.exercise_id}>
                                 <div className='img-box'>
                                 <img
-                                src={'https://img.youtube.com/vi/' + item.content.slice(-11) + '/maxresdefault.jpg'}  className='fav-img'/>
+                                src={'https://img.youtube.com/vi/' + item.content.slice(-11) + '/maxresdefault.jpg'} alt='thumbnail' className='fav-img'/>
                                 </div>
                                 <div className='fav-item-info'>
                                     <h4>{item.name}</h4>

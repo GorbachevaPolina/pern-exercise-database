@@ -86,8 +86,8 @@ const FullInfoModule = ({item, isAuth, isCatalog}) => {
                 </div>
                 
                 <div className='modal-content'>
-                    <iframe src={item.content} className='modal-exercise'></iframe>
-                    <p>{item.description}</p>
+                    <iframe src={item.content} title='exercise' className='modal-exercise'></iframe>
+                    <p>{item.description}</p> 
                     <p>Categories:</p>
                     <div className='categories-inline'>
                     {

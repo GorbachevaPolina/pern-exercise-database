@@ -1,4 +1,4 @@
-import React, {Fragment, useState, useEffect} from "react";
+import React, {Fragment, useState} from "react";
 
 const CategoryModal = ({categories, setChosen, chosen}) => {
 
@@ -41,7 +41,7 @@ const CategoryModal = ({categories, setChosen, chosen}) => {
                             categories.map(function(category) {
                                 if (category.category_group === 'type')
                                     return (
-                                        <div id={category.category_name} className='single-category' onClick={addCategory}>
+                                        <div id={category.category_name} key={category.category_id} className='single-category' onClick={addCategory}>
                                             {category.category_name}
                                         </div>
                                     )
@@ -55,7 +55,7 @@ const CategoryModal = ({categories, setChosen, chosen}) => {
                             categories.map(function(category) {
                                 if (category.category_group === 'muscle group')
                                     return (
-                                        <div id={category.category_name} className='single-category' onClick={addCategory}>
+                                        <div id={category.category_name} key={category.category_id} className='single-category' onClick={addCategory}>
                                             {category.category_name}
                                         </div>
                                     )
@@ -69,7 +69,7 @@ const CategoryModal = ({categories, setChosen, chosen}) => {
                             categories.map(function(category) {
                                 if (category.category_group === 'equipment')
                                     return (
-                                        <div id={category.category_name} className='single-category' onClick={addCategory}>
+                                        <div id={category.category_name} key={category.category_id} className='single-category' onClick={addCategory}>
                                             {category.category_name}
                                         </div>
                                     )

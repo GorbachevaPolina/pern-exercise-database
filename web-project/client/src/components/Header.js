@@ -7,6 +7,7 @@ const Header = ({isAuth, setAuth}) => {
         e.preventDefault();
         localStorage.removeItem('token');
         setAuth(false);
+        window.location = '/'
     }
 
     return (
@@ -14,7 +15,7 @@ const Header = ({isAuth, setAuth}) => {
              <div className='header-container'>
                 <ul className='links'>
                     <li className='link'>
-                        <a href='/'><img src={logo}></img></a>
+                        <a href='/'><img src={logo} alt='logo'></img></a>
                     </li>
                     <span className='btns-container'>
                     <li className='link'>

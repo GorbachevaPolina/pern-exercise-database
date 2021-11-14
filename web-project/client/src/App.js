@@ -10,6 +10,7 @@ import Catalog from './components/Catalog';
 function App() {
 
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  
 
   const setAuth = (boolean) => {
     setIsAuthenticated(boolean);

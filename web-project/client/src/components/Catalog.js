@@ -1,14 +1,13 @@
-import React, {useEffect, useState, Fragment} from "react";
+import React, {useEffect, useState} from "react";
 import Header from "./Header";
-import FullInfoModule from "./FullInfoModule";
 import CategoryModal from "./CategoryModal";
 import CatalogExercises from "./CatalogExercises";
 
 const Catalog = ({isAuth, setAuth}) => {
 
-    // const [exercises, setExercises] = useState([]);
     const [categories, setCategories] = useState([]);
     const [chosen, setChosen] = useState([])
+    const [role, setRole] = useState('')
 
     async function getCategories() {
         try {
@@ -21,6 +20,23 @@ const Catalog = ({isAuth, setAuth}) => {
             const parseRes = await categories.json();
 
             setCategories(parseRes);
+        } catch (err) {
+            console.error(err);
+        }
+    }
+
+    async function getRole() {
+        try {
+            const response = await fetch(
+                'http://localhost:5000/dashboard', {
+                    method: 'GET',
+                    headers: {token: localStorage.token}
+                }
+            ) 
+
+            const parseRes = await response.json();
+
+            setRole(parseRes.role)
         } catch (err) {
             console.error(err);
         }
@@ -47,8 +63,9 @@ const Catalog = ({isAuth, setAuth}) => {
 
     useEffect(() => {
         getCategories();
-        // getExercises();
-    }, [])
+        if(isAuth)
+            getRole();
+    }, [isAuth])
 
 
     return (
@@ -69,6 +86,11 @@ const Catalog = ({isAuth, setAuth}) => {
                 <CategoryModal categories={categories} setChosen={setChosen} chosen={chosen}/>
 
             </div>
+            {
+                role === 'admin' ?
+                <button className='add-catalog-btn'>Add exercises to catalog</button> : //add a separate component
+                null
+            }
             <CatalogExercises isAuth={isAuth} setAuth={setAuth} categories={categories} chosen={chosen}/>
             {/* <div className='fav-img-container'>
                 {exercises.map(function(item) {

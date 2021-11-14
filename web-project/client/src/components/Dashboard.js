@@ -1,10 +1,11 @@
-import React, {Fragment, useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Link} from 'react-router-dom';
 import DashboardFavourite from "./DashboardFavourite";
 
 const Dashboard = ({isAuth, setAuth}) => {
 
     const [username, setUsername] = useState('');
+    const [role, setRole] = useState('')
 
     async function getName() {
         try {
@@ -18,6 +19,7 @@ const Dashboard = ({isAuth, setAuth}) => {
             const parseRes = await response.json();
 
             setUsername(parseRes.username)
+            setRole(parseRes.role)
         } catch (err) {
             console.error(err);
         }
@@ -42,6 +44,11 @@ const Dashboard = ({isAuth, setAuth}) => {
                 <p className='sidebar-text'>
                     WELCOME, <br /> {username}
                 </p>
+                {
+                    role === 'admin' ?
+                    <p>{role}</p> :
+                    null
+                }
                 <Link to='/' className='profile-btn'>Main Page</Link>
                 <Link to='/catalog' className='profile-btn'>Catalog</Link>
                 <button className='logout-btn' onClick={e => logout(e)}>Log Out</button>

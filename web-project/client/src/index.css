@@ -37,7 +37,7 @@ body {
   color: #6B2D29;
 }
 
-.color-btn, .back-green, .menu-btn, .sidebar-container, .open-modal-btn, .category-group {
+.color-btn, .back-green, .menu-btn, .sidebar-container, .open-modal-btn, .category-group, .add-catalog-btn {
   background-color: #6B2D29;
   color: white;
 }
@@ -106,7 +106,7 @@ header {
   float: right;
 }
 
-.log-btn:hover, .menu-btn:hover, .profile-btn:hover, .open-modal-btn:hover, .category-group:hover {
+.log-btn:hover, .menu-btn:hover, .profile-btn:hover, .open-modal-btn:hover, .category-group:hover, .add-catalog-btn:hover {
   cursor: pointer;
   color: #eaeaea;
 }
@@ -418,11 +418,16 @@ iframe {
   margin-left: 40px;
 }
 
-.category-group {
+.category-group, .add-catalog-btn {
   margin-right: 20px;
   border: 2px solid white;
   border-radius: 5px;
   padding: 5px;
+}
+
+.add-catalog-btn {
+  margin-left: 40px;
+  margin-top: 10px;
 }
 
 .categories-inline, .categories-inline-modal {
