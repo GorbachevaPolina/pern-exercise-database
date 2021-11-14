@@ -30,8 +30,8 @@ router.get('/chosen', async (req, res) => {
     try {
         const categories = JSON.parse(req.header('chosen'));
         const items = await pool.query(
-            "SELECT distinct exercise_id, content, name, description FROM exercises JOIN category_exercise USING(exercise_id) JOIN categories USING(category_id) WHERE categories.category_name = ANY($1::varchar[]) ORDER BY exercise_id",
-            [categories]
+            "SELECT exercise_id, content, name, description FROM exercises JOIN category_exercise USING(exercise_id) JOIN categories USING(category_id) WHERE categories.category_name = ANY($1::varchar[]) GROUP BY exercises.exercise_id HAVING count(exercise_id) = $2 ORDER BY exercises.exercise_id",
+            [categories, categories.length]
         )
 
         res.json(items.rows);
