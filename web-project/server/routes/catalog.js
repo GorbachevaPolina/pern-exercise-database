@@ -70,4 +70,58 @@ router.get("/category", async (req, res) => {
     }
 })
 
+router.post("/add", async (req, res) => { //testing needed
+    try {
+        const {content, name, description, type, muscle, equipment} = req.body;
+
+        //adding new exercise
+        const newExercise = await pool.query(
+            "INSERT INTO exercises (content, name, description) VALUES ($1, $2, $3) RETURNING exercise_id",
+            [content, name, description]
+        )
+
+        // console.log(newExercise.rows[0].exercise_id)
+
+        //getting categories
+        const checkCategories = await pool.query(
+            "SELECT * FROM categories WHERE category_name = $1 OR category_name = $2 OR category_name = $3",
+            [type, muscle, equipment]
+        )
+
+        // console.log(checkCategories.rows)
+
+        //adding new categories
+        if (checkCategories.rows.length !== 3) {
+            let arr = [];
+            for (let i = 0; i < checkCategories.rows.length; ++i) {
+                arr.push(checkCategories.rows[i].category_group);
+            }
+            let difference = ['type', 'muscle group', 'equipment'].filter(x => !arr.includes(x));
+
+            for (let i = 0; i < difference.length; ++i) {
+                let val = 0;
+                if (difference[i] === 'type') {
+                    val = type;
+                } else if (difference[i] === 'muscle group') {
+                    val = muscle;
+                } else {
+                    val = equipment;
+                }
+                const addCategory = await pool.query(
+                    "INSERT INTO categories (category_name, category_group) VALUES ($1, $2) RETURNING *",
+                    [val, difference[i]]
+                )
+            }
+        }
+        
+        const connect = await pool.query(
+            "INSERT INTO category_exercise (exercise_id, category_id) SELECT * from (select exercises.exercise_id from exercises where exercises.exercise_id = $1) as q1, (select categories.category_id from categories where categories.category_name = $2 or categories.category_name = $3 or categories.category_name = $4) as q2;",
+            [newExercise.rows[0].exercise_id, type, muscle, equipment]
+        )
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json("Server Error");
+    }
+})
+
 module.exports = router;

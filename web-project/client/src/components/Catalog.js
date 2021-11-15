@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import Header from "./Header";
 import CategoryModal from "./CategoryModal";
 import CatalogExercises from "./CatalogExercises";
+import AddExercise from "./AddExercise";
 
 const Catalog = ({isAuth, setAuth}) => {
 
@@ -88,7 +89,7 @@ const Catalog = ({isAuth, setAuth}) => {
             </div>
             {
                 role === 'admin' ?
-                <button className='add-catalog-btn'>Add exercises to catalog</button> : //add a separate component
+                <AddExercise /> :
                 null
             }
             <CatalogExercises isAuth={isAuth} setAuth={setAuth} categories={categories} chosen={chosen}/>
