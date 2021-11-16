@@ -39,25 +39,22 @@ const AddExercise = () => {
 
     const onSubmitForm = async (e) => {
         e.preventDefault(); 
+        if (content === '' || name === '' || description === '' || type === '' || muscle === '' || equipment === '') {
+            hideModal();
+            return;
+        }
         try {
             const body = {content, name, description, type, muscle, equipment}
             const response = await fetch(
                 'http://localhost:5000/catalog/add',
                 {
                     method: "POST",
-                    headers: {"Content-Type": "application/json"},
+                    headers: {"Content-Type": "application/json", token: localStorage.token},
                     body: JSON.stringify(body)
                 }
             ) 
 
-            // setInputs({
-            //     content: '',
-            //     name: '',
-            //     description: '',
-            //     type: '',
-            //     muscle: '',
-            //     equipment: ''
-            // })
+            window.location.reload();
         } catch (err) {
             console.error(err.message);
         }

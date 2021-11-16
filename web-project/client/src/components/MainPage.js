@@ -12,9 +12,9 @@ const MainPage = ({isAuth, setAuth}) => {
             /> */}
             <div className='hero'>
                 <p className='hero-text'>
-                    База физических упражнений.
+                    Catalog of workouts
                     <br />
-                    Начни работу над собой уже сейчас 
+                    Start working on yourself today
                 </p>
                 {
                     isAuth ?
@@ -30,14 +30,22 @@ const MainPage = ({isAuth, setAuth}) => {
                     </div>
                     <div className='section'>
                         <p className='description-text'>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent imperdiet consectetur erat, et iaculis neque rhoncus et. Maecenas blandit nulla consequat ante efficitur, ac molestie sem rutrum. Nunc eros mi, dignissim vel purus ac, lacinia imperdiet dui. Cras mattis odio in ante sagittis vulputate. Quisque vestibulum mauris nisi, ut congue ante elementum quis. Vestibulum a elit risus. Donec nec lacinia urna, sit amet accumsan ligula.                        </p>
+                            It can be quite intimidating to start exercising with no prior experience. All different types of workouts can confuse and even deter newcomers from continuing their fitness journey.
+                            <br/>
+                            The goal of this website is to organise workouts in a way that would allow people to start exercising without thinking about it too much.
+                        </p>
                     </div>
                 </div>
                 <br />
                 <div className='description-section'>
                     <div className='section'>
                         <p className='description-text'>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent imperdiet consectetur erat, et iaculis neque rhoncus et. Maecenas blandit nulla consequat ante efficitur, ac molestie sem rutrum. Nunc eros mi, dignissim vel purus ac, lacinia imperdiet dui. Cras mattis odio in ante sagittis vulputate. Quisque vestibulum mauris nisi, ut congue ante elementum quis. Vestibulum a elit risus. Donec nec lacinia urna, sit amet accumsan ligula.                        </p>
+                            More experienced people could also find use in this application. 
+                            <br />
+                            You can easily keep track of your current workout routine by adding exercises to favourites.
+                            <br />
+                            Also, this website can help you discover new workouts, which you may have never seen before.
+                        </p>
                     </div>
                     <div className='section'>
                         <img src='https://media.istockphoto.com/photos/man-standing-in-yoga-position-picture-id688086016?k=20&m=688086016&s=612x612&w=0&h=w9zfw21q3f4q3Ja1MaG30AieamM1y0bE-Pdtza-HvRg=' alt='workout' className='mainpage-img' />
@@ -52,7 +60,12 @@ const MainPage = ({isAuth, setAuth}) => {
                     </div>
                     <div className='section section-text'>
                         <p className='description-text menu-text'>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent imperdiet consectetur erat, et iaculis neque rhoncus et. Maecenas blandit nulla consequat ante efficitur, ac molestie sem rutrum. Nunc eros mi, dignissim vel purus ac, lacinia imperdiet dui. Cras mattis odio in ante sagittis vulputate. Quisque vestibulum mauris nisi, ut congue ante elementum quis. Vestibulum a elit risus. Donec nec lacinia urna, sit amet accumsan ligula.                        </p>
+                            Browse catalog to see tons of workouts by top fitness creators on YouTube. 
+                            <br /> 
+                            Each workout has a description and categories so even people, who have never exercised before, can understand what each workout does.
+                            <br />
+                            You can save preferred exercises to Favourites section in your profile to have quick access to them at all times.
+                        </p>
                         <Link to='/catalog' className='menu-btn'>CATALOG</Link>
                     </div>
                 </section>

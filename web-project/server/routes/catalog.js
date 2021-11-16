@@ -70,9 +70,12 @@ router.get("/category", async (req, res) => {
     }
 })
 
-router.post("/add", async (req, res) => { //testing needed
+router.post("/add", authorization, async (req, res) => { 
     try {
-        const {content, name, description, type, muscle, equipment} = req.body;
+        let {content, name, description, type, muscle, equipment} = req.body;
+        type = type.charAt(0).toUpperCase() + type.toLowerCase().slice(1);
+        muscle = muscle.charAt(0).toUpperCase() + muscle.toLowerCase().slice(1);
+        equipment = equipment.charAt(0).toUpperCase() + equipment.toLowerCase().slice(1);
 
         //adding new exercise
         const newExercise = await pool.query(
@@ -80,15 +83,11 @@ router.post("/add", async (req, res) => { //testing needed
             [content, name, description]
         )
 
-        // console.log(newExercise.rows[0].exercise_id)
-
         //getting categories
         const checkCategories = await pool.query(
             "SELECT * FROM categories WHERE category_name = $1 OR category_name = $2 OR category_name = $3",
             [type, muscle, equipment]
         )
-
-        // console.log(checkCategories.rows)
 
         //adding new categories
         if (checkCategories.rows.length !== 3) {
@@ -118,6 +117,8 @@ router.post("/add", async (req, res) => { //testing needed
             "INSERT INTO category_exercise (exercise_id, category_id) SELECT * from (select exercises.exercise_id from exercises where exercises.exercise_id = $1) as q1, (select categories.category_id from categories where categories.category_name = $2 or categories.category_name = $3 or categories.category_name = $4) as q2;",
             [newExercise.rows[0].exercise_id, type, muscle, equipment]
         )
+
+        res.json("Exercise added")
     } catch (err) {
         console.error(err.message);
         res.status(500).json("Server Error");
