@@ -6,11 +6,14 @@ const CatalogExercises = ({isAuth, setAuth, categories, chosen}) => {
 
     async function getExercises() {
         try {
+            if (categories.length !== 0) {
             if(chosen.length === 0) {
+                const encoded_categories = categories.map(item => ({...item}));
+                encoded_categories.forEach(item => item.category_name = encodeURI(item.category_name))
                 const response = await fetch(
                     'http://localhost:5000/catalog/', {
                         method: 'GET',
-                        headers: {categories: JSON.stringify(categories)}
+                        headers: {categories: JSON.stringify(encoded_categories)}
                     }
                 )
 
@@ -18,10 +21,12 @@ const CatalogExercises = ({isAuth, setAuth, categories, chosen}) => {
                 
                 setExercises(parseRes)
             } else {
+                var encoded_chosen = chosen.map(item => item);
+                encoded_chosen = encodeURI(encoded_chosen).split(',')
                 const response = await fetch(
                     'http://localhost:5000/catalog/chosen', {
                         method: 'GET',
-                        headers: {chosen: JSON.stringify(chosen)}
+                        headers: {chosen: JSON.stringify(encoded_chosen)}
                     }
                 )
 
@@ -29,6 +34,7 @@ const CatalogExercises = ({isAuth, setAuth, categories, chosen}) => {
 
                 setExercises(parseRes);
             }
+        }
         } catch (err) {
             console.error(err);
         }

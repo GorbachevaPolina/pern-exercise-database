@@ -25,7 +25,7 @@ const CategoryModal = ({categories, setChosen, chosen}) => {
 
     return (
         <Fragment>
-            <button className='category-group' onClick={showModal}>Sort</button>
+            <button className='category-group' onClick={showModal}>Сортировка</button>
 
             <div className={`modal ${show}`}>
                 <div className='modal-header'> 
@@ -33,10 +33,10 @@ const CategoryModal = ({categories, setChosen, chosen}) => {
                 </div>
 
                 <div className='modal-content'>
-                    <p className='modal-p'>Click categories you'd like to choose: </p>
+                    <p className='modal-p'>Выберите категории: </p>
                     <div className='categories-inline-modal'>
                         <div className='categories'>
-                            <p>Type:</p>
+                            <p>Тип:</p>
                         {
                             categories.map(function(category) {
                                 if (category.category_group === 'type')
@@ -50,7 +50,7 @@ const CategoryModal = ({categories, setChosen, chosen}) => {
                         </div>
 
                         <div className='categories'>
-                        <p>Muscle group: </p>
+                        <p>Группа мышц: </p>
                         {
                             categories.map(function(category) {
                                 if (category.category_group === 'muscle group')
@@ -64,7 +64,7 @@ const CategoryModal = ({categories, setChosen, chosen}) => {
                         </div>
 
                         <div className='categories'>
-                        <p>Equipment:</p>
+                        <p>Оборудование:</p>
                         {
                             categories.map(function(category) {
                                 if (category.category_group === 'equipment')
@@ -79,7 +79,7 @@ const CategoryModal = ({categories, setChosen, chosen}) => {
                     </div>
 
                     <div className='chosen-categories'>
-                        <p>Chosen categories: </p>
+                        <p>Выбранные категории: </p>
                         {
                             chosen.filter(function onlyUnique(value, index, self) {
                                     return self.indexOf(value) === index;

@@ -6,6 +6,7 @@ router.get("/", async (req, res) => {
     try {
         if (req.header('categories').length !== 0) {
             const array = JSON.parse(req.header('categories'));
+            array.forEach(item => item.category_name = decodeURI(item.category_name))
             let categories = [];
             for (let i = 0; i < array.length; ++i) {
                 categories.push(array[i].category_id)
@@ -28,7 +29,8 @@ router.get("/", async (req, res) => {
 
 router.get('/chosen', async (req, res) => {
     try {
-        const categories = JSON.parse(req.header('chosen'));
+        var categories = JSON.parse(req.header('chosen'));
+        categories = decodeURI(categories).split(',');
         const items = await pool.query(
             "SELECT exercise_id, content, name, description FROM exercises JOIN category_exercise USING(exercise_id) JOIN categories USING(category_id) WHERE categories.category_name = ANY($1::varchar[]) GROUP BY exercises.exercise_id HAVING count(exercise_id) = $2 ORDER BY exercises.exercise_id",
             [categories, categories.length]

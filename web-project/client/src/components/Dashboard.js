@@ -7,7 +7,7 @@ const Dashboard = ({isAuth, setAuth}) => {
     const [username, setUsername] = useState('');
     const [role, setRole] = useState('')
 
-    async function getName() {
+    async function getName() { 
         try {
             const response = await fetch(
                 'http://localhost:5000/dashboard', {
@@ -42,16 +42,16 @@ const Dashboard = ({isAuth, setAuth}) => {
             <div className='sidebar-container'>
                 <div className='sidebar-content'>
                 <p className='sidebar-text'>
-                    WELCOME, <br /> {username}
+                    ДОБРО ПОЖАЛОВАТЬ, <br /> {username}
                 </p>
                 {
                     role === 'admin' ?
                     <p>{role}</p> :
                     null
                 }
-                <Link to='/' className='profile-btn'>Main Page</Link>
-                <Link to='/catalog' className='profile-btn'>Catalog</Link>
-                <button className='logout-btn' onClick={e => logout(e)}>Log Out</button>
+                <Link to='/' className='profile-btn'>На главную</Link>
+                <Link to='/catalog' className='profile-btn'>Каталог</Link>
+                <button className='logout-btn' onClick={e => logout(e)}>Выйти</button>
                 </div>
             </div>
             <div className='fav-container'>

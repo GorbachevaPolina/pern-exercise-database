@@ -45,7 +45,7 @@ const Login = ({setAuth}) => {
     return (
         <Fragment>
             <div className='container'>
-            <h1 className='text-center my-5 color-text'>Login</h1>
+            <h1 className='text-center my-5 color-text'>Вход</h1>
             <form onSubmit={onSubmitForm}>
                 <input 
                     type='email'
@@ -65,9 +65,9 @@ const Login = ({setAuth}) => {
                 />
                 <button 
                     className='btn color-btn btn-block'
-                >Submit</button>
+                >Войти</button>
             </form>
-            <Link to='/register' className='text-muted w-100'>Register</Link>
+            <Link to='/register' className='text-muted w-100'>Регистрация</Link>
             <br />
             <Link to='/' className='text-muted w-100'>На главную</Link>
             </div>

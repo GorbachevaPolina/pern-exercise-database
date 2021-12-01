@@ -20,6 +20,7 @@ const Catalog = ({isAuth, setAuth}) => {
 
             const parseRes = await categories.json();
 
+    
             setCategories(parseRes);
         } catch (err) {
             console.error(err);
@@ -72,7 +73,7 @@ const Catalog = ({isAuth, setAuth}) => {
     return (
         <div className='catalog-container'>
             <Header isAuth={isAuth} setAuth={setAuth}/>
-            <h1>Catalog</h1>
+            <h1>Каталог</h1>
             <div className='category-container'>
                 {/* {
                     category_groups.map(function(category_item) {

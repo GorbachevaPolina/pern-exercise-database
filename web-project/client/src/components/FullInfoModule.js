@@ -31,9 +31,9 @@ const FullInfoModule = ({item, isAuth, isCatalog}) => {
             const parseRes = await response.json();
             
             if (parseRes === 'Exercise already added to favourites') {
-                setCorrect('Exercise already added to favourites')
+                setCorrect('Упражнение уже добавлено в избранное')
             } else {
-                setCorrect('Added to favourites')
+                setCorrect('Добавлено в избранное')
             }
         } catch (err) {
             console.error(err.message)
@@ -78,7 +78,7 @@ const FullInfoModule = ({item, isAuth, isCatalog}) => {
 
     return (
         <Fragment>
-            <button className='open-modal-btn' onClick={showModal}>Open</button>
+            <button className='open-modal-btn' onClick={showModal}>Подробнее</button>
 
             <div className={`modal ${show}`}>
                 <div className='modal-header'> 
@@ -88,7 +88,7 @@ const FullInfoModule = ({item, isAuth, isCatalog}) => {
                 <div className='modal-content'>
                     <iframe src={item.content} title='exercise' className='modal-exercise'></iframe>
                     <p>{item.description}</p> 
-                    <p>Categories:</p>
+                    <p>Категории:</p>
                     <div className='categories-inline'>
                     {
                         categories.map(function(category) {
@@ -102,9 +102,9 @@ const FullInfoModule = ({item, isAuth, isCatalog}) => {
                     </div>
                     {
                         (isAuth && isCatalog) ?
-                        <button className='open-modal-btn' onClick={addExerciseToFav}>Add to Favourites</button> :
+                        <button className='open-modal-btn' onClick={addExerciseToFav}>В Избранное</button> :
                         !isCatalog ? 
-                        <button className='open-modal-btn' onClick={() => deleteExerciseFromFavourite(item.exercise_id)}>Delete</button> : null
+                        <button className='open-modal-btn' onClick={() => deleteExerciseFromFavourite(item.exercise_id)}>Удалить</button> : null
                     }
                     {
                         (isCatalog && isCorrect) ?

@@ -225,6 +225,7 @@ header {
   width: 30%;
   position: relative;
   text-align: center;
+  overflow: auto;
 }
 
 .sidebar-content {
@@ -235,7 +236,7 @@ header {
 }
 
 .sidebar-text {
-  font-size: 40px;
+  font-size: 35px;
 }
 
 
@@ -525,6 +526,46 @@ form h4 {
 @media (max-width: 460px) {
   .menu-text, .description-text, .section-text {
     font-size: 10px;
+  }
+}
+
+@media (max-width: 400px) {
+  .sidebar-text {
+    font-size: 15px;
+  }
+  .sidebar-content p {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 900px) {
+  .sidebar-text {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 800px) {
+  .sidebar-text {
+    font-size: 20px;
+  }
+  .profile-btn, .logout-btn {
+    font-size: 15px;
+  }
+}
+@media (max-width: 540px) {
+  .sidebar-text {
+    font-size: 15px;
+  }
+  .sidebar-content p {
+    font-size: 15px;
+  }
+}
+
+@media (max-height: 360px) {
+  .sidebar-content {
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
   }
 }
 

@@ -12,14 +12,19 @@ const MainPage = ({isAuth, setAuth}) => {
             /> */}
             <div className='hero'>
                 <p className='hero-text'>
-                    Catalog of workouts
+                    Каталог упражнений
                     <br />
-                    Start working on yourself today
+                    Начни работу над собой сегодня
                 </p>
+                {/* {
+                    isAuth ?
+                    <Link to='/dashboard' className='profile-btn main-btn'>Избранное</Link> :
+                    <Link to='/register' className='profile-btn main-btn'>Регистрация</Link>
+                } */}
                 {
                     isAuth ?
-                    <Link to='/dashboard' className='profile-btn main-btn'>Favourite Exercises</Link> :
-                    <Link to='/register' className='profile-btn main-btn'>Register</Link>
+                    null :
+                    <Link to='/register' className='profile-btn main-btn'>Регистрация</Link>
                 }
             </div>
 
@@ -30,9 +35,9 @@ const MainPage = ({isAuth, setAuth}) => {
                     </div>
                     <div className='section'>
                         <p className='description-text'>
-                            It can be quite intimidating to start exercising with no prior experience. All different types of workouts can confuse and even deter newcomers from continuing their fitness journey.
+                            Многим людям трудно начать заниматься спортом без какого-либо опыта. Различные виды тренировок могут сбить с толку или даже отпугнуть новичков.
                             <br/>
-                            The goal of this website is to organise workouts in a way that would allow people to start exercising without thinking about it too much.
+                            Цель данного веб-сервиса - организовать тренировки таким образом, чтобы даже самые необытные люди смогли подобрать себе упражения по вкусу.
                         </p>
                     </div>
                 </div>
@@ -40,11 +45,9 @@ const MainPage = ({isAuth, setAuth}) => {
                 <div className='description-section'>
                     <div className='section'>
                         <p className='description-text'>
-                            More experienced people could also find use in this application. 
+                            Более опытные люди также смогут найти пользву в данном сайте.  
                             <br />
-                            You can easily keep track of your current workout routine by adding exercises to favourites.
-                            <br />
-                            Also, this website can help you discover new workouts, which you may have never seen before.
+                            Пользователь может не только управлять уже существующими тренировками с помощью функции добавления в избранное, но и открывать для себя еще неизвестные упражнения, просматривая каталог.
                         </p>
                     </div>
                     <div className='section'>
@@ -60,13 +63,13 @@ const MainPage = ({isAuth, setAuth}) => {
                     </div>
                     <div className='section section-text'>
                         <p className='description-text menu-text'>
-                            Browse catalog to see tons of workouts by top fitness creators on YouTube. 
+                            Просматривайте каталог, чтобы увидеть упражнения от лучших фитнес-блогеров на YouTube. 
                             <br /> 
-                            Each workout has a description and categories so even people, who have never exercised before, can understand what each workout does.
+                            У каждой тренровки есть описание и категории, поэтому даже самые неопытные люди смогут разобраться с любым упражнением.
                             <br />
-                            You can save preferred exercises to Favourites section in your profile to have quick access to them at all times.
+                            Понравившиеся упражнения можно сохранить в Избранное для легкого доступа к ним.
                         </p>
-                        <Link to='/catalog' className='menu-btn'>CATALOG</Link>
+                        <Link to='/catalog' className='menu-btn'>КАТАЛОГ</Link>
                     </div>
                 </section>
             </div>
