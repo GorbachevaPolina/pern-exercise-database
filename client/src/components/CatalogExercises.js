@@ -18,7 +18,6 @@ const CatalogExercises = ({isAuth, setAuth, categories, chosen}) => {
                 )
 
                 const parseRes = await response.json();
-                parseRes.forEach(item => {item.name = decodeURI(item.name); item.description = decodeURI(item.description)})
                 
                 setExercises(parseRes)
             } else {
