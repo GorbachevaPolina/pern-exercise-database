@@ -16,6 +16,7 @@ router.get("/", async (req, res) => {
                 "SELECT distinct exercise_id, content, name, description FROM exercises JOIN category_exercise USING(exercise_id) WHERE category_exercise.category_id = ANY($1::int[]) ORDER BY exercise_id",
                 [categories]
             )
+            console.log(items.rows)
 
             res.json(items.rows);
         } else {
