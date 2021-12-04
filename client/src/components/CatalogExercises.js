@@ -11,7 +11,7 @@ const CatalogExercises = ({isAuth, setAuth, categories, chosen}) => {
                 const encoded_categories = categories.map(item => ({...item}));
                 encoded_categories.forEach(item => item.category_name = encodeURI(item.category_name))
                 const response = await fetch(
-                    '/catalog/?useUnicode=true&amp;characterEncoding=UTF-8', {
+                    '/catalog/', {
                         method: 'GET',
                         headers: {categories: JSON.stringify(encoded_categories)}
                     }
