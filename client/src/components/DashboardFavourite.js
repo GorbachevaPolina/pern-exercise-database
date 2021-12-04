@@ -9,7 +9,7 @@ const DashboardFavourite = ({isAuth}) => {
     async function getExercises() {
         try {
             const response = await fetch(
-                'http://localhost:5000/dashboard/fav', {
+                '/dashboard/fav', {
                     method: 'GET',
                     headers: {token: localStorage.token}
                 }

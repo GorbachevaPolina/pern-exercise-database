@@ -11,7 +11,7 @@ const CatalogExercises = ({isAuth, setAuth, categories, chosen}) => {
                 const encoded_categories = categories.map(item => ({...item}));
                 encoded_categories.forEach(item => item.category_name = encodeURI(item.category_name))
                 const response = await fetch(
-                    'http://localhost:5000/catalog/', {
+                    '/catalog/', {
                         method: 'GET',
                         headers: {categories: JSON.stringify(encoded_categories)}
                     }
@@ -24,7 +24,7 @@ const CatalogExercises = ({isAuth, setAuth, categories, chosen}) => {
                 var encoded_chosen = chosen.map(item => item);
                 encoded_chosen = encodeURI(encoded_chosen).split(',')
                 const response = await fetch(
-                    'http://localhost:5000/catalog/chosen', {
+                    '/catalog/chosen', {
                         method: 'GET',
                         headers: {chosen: JSON.stringify(encoded_chosen)}
                     }

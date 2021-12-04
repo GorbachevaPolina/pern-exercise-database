@@ -10,7 +10,7 @@ const Dashboard = ({isAuth, setAuth}) => {
     async function getName() { 
         try {
             const response = await fetch(
-                'http://localhost:5000/dashboard', {
+                '/dashboard', {
                     method: 'GET',
                     headers: {token: localStorage.token}
                 }

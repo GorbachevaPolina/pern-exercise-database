@@ -46,7 +46,7 @@ const AddExercise = () => {
         try {
             const body = {content, name, description, type, muscle, equipment}
             const response = await fetch(
-                'http://localhost:5000/catalog/add',
+                '/catalog/add',
                 {
                     method: "POST",
                     headers: {"Content-Type": "application/json", token: localStorage.token},

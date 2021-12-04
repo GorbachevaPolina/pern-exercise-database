@@ -13,7 +13,7 @@ const Catalog = ({isAuth, setAuth}) => {
     async function getCategories() {
         try {
             const categories = await fetch(
-                'http://localhost:5000/catalog/categories', {
+                '/catalog/categories', {
                     method: 'GET'
                 }
             )
@@ -30,7 +30,7 @@ const Catalog = ({isAuth, setAuth}) => {
     async function getRole() {
         try {
             const response = await fetch(
-                'http://localhost:5000/dashboard', {
+                '/dashboard', {
                     method: 'GET',
                     headers: {token: localStorage.token}
                 }

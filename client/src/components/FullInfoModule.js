@@ -21,7 +21,7 @@ const FullInfoModule = ({item, isAuth, isCatalog}) => {
             const body = {exercise_id};
 
             const response = await fetch(
-                'http://localhost:5000/dashboard/fav',
+                '/dashboard/fav',
                 {
                     method: "POST",
                     headers: {"Content-Type": "application/json", token: localStorage.token},
@@ -43,7 +43,7 @@ const FullInfoModule = ({item, isAuth, isCatalog}) => {
     const deleteExerciseFromFavourite = async(id) => {
         try {
             
-            const deleteExercise = await fetch(`http://localhost:5000/dashboard/fav/${id}`, {
+            const deleteExercise = await fetch(`/dashboard/fav/${id}`, {
                 method: "DELETE",
                 headers: {token: localStorage.token}
             });
@@ -58,7 +58,7 @@ const FullInfoModule = ({item, isAuth, isCatalog}) => {
     const getCategories = async () => {
         try {
             const response = await fetch(
-                'http://localhost:5000/catalog/category', {
+                '/catalog/category', {
                     method: 'GET',
                     headers: {exercise_id: item.exercise_id}
                 }
