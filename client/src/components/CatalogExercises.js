@@ -18,6 +18,7 @@ const CatalogExercises = ({isAuth, setAuth, categories, chosen}) => {
                 )
 
                 const parseRes = await response.json();
+                console.log(parseRes);
                 
                 setExercises(parseRes)
             } else {
