@@ -16,7 +16,7 @@ const CatalogExercises = ({isAuth, setAuth, categories, chosen}) => {
                         headers: {categories: JSON.stringify(encoded_categories)}
                     }
                 )
-
+                
                 const parseRes = await response.json();
                 
                 setExercises(parseRes)
