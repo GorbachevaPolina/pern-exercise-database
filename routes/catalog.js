@@ -11,6 +11,7 @@ router.get("/", async (req, res) => {
             for (let i = 0; i < array.length; ++i) {
                 categories.push(array[i].category_id)
             }
+            console.log(categories)
 
             const items = await pool.query(
                 "SELECT distinct exercise_id, content, name, description FROM exercises JOIN category_exercise USING(exercise_id) WHERE category_exercise.category_id = ANY($1::int[]) ORDER BY exercise_id",
