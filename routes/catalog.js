@@ -11,13 +11,17 @@ router.get("/", async (req, res) => {
             for (let i = 0; i < array.length; ++i) {
                 categories.push(array[i].category_id)
             }
-            console.log(categories)
 
             const items = await pool.query(
                 "SELECT distinct exercise_id, content, name, description FROM exercises JOIN category_exercise USING(exercise_id) WHERE category_exercise.category_id = ANY($1::int[]) ORDER BY exercise_id",
                 [categories]
             )
-            console.log(items.rows)
+
+            const test = await pool.query(
+                "select * from test"
+            )
+            console.log(test.rows)
+
             res.json(items.rows);
         } else {
             throw new Error('Empty categories array')
