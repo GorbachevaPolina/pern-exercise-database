@@ -50,7 +50,7 @@ const Dashboard = ({isAuth, setAuth}) => {
                     null
                 }
                 <Link to='/' className='profile-btn'>На главную</Link>
-                <Link to='/catalog' className='profile-btn'>Каталог</Link>
+                <Link to='/cat' className='profile-btn'>Каталог</Link>
                 <button className='logout-btn' onClick={e => logout(e)}>Выйти</button>
                 </div>
             </div>

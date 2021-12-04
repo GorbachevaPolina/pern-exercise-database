@@ -24,7 +24,7 @@ const MainPage = ({isAuth, setAuth}) => {
                 {
                     isAuth ?
                     null :
-                    <Link to='/register' className='profile-btn main-btn'>Регистрация</Link>
+                    <Link to='/reg' className='profile-btn main-btn'>Регистрация</Link>
                 }
             </div>
 
@@ -69,7 +69,7 @@ const MainPage = ({isAuth, setAuth}) => {
                             <br />
                             Понравившиеся упражнения можно сохранить в Избранное для легкого доступа к ним.
                         </p>
-                        <Link to='/catalog' className='menu-btn'>КАТАЛОГ</Link>
+                        <Link to='/cat' className='menu-btn'>КАТАЛОГ</Link>
                     </div>
                 </section>
             </div>

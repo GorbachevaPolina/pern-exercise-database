@@ -74,7 +74,7 @@ const Register = ({setAuth}) => {
                 />
                 <button className='btn color-btn btn-block'>Зарегистрироваться</button>
             </form>
-            <Link to='/login' className='text-muted w-100'>Войти</Link>
+            <Link to='/log' className='text-muted w-100'>Войти</Link>
             <br />
             <Link to='/' className='text-muted w-100'>На главную</Link>
             </div>

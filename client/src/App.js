@@ -49,40 +49,40 @@ function App() {
             />
             <Route 
               exact 
-              path='/login' 
+              path='/log' 
               render={props => 
                 !isAuthenticated ? (
                   <Login {...props} setAuth={setAuth}/>
                 ) : (
-                  <Redirect to='/dashboard' /> 
+                  <Redirect to='/board' /> 
                 )
               }
             />
             <Route 
               exact 
-              path='/register' 
+              path='/reg' 
               render={props => 
                 !isAuthenticated ? (
                   <Register {...props} setAuth={setAuth}/>
                 ) : (
-                  <Redirect to='/login' /> 
+                  <Redirect to='/log' /> 
                 )
               }
             />
             <Route 
               exact 
-              path='/dashboard' 
+              path='/board' 
               render={props => 
                 isAuthenticated ? (
                   <Dashboard {...props} isAuth={isAuth} setAuth={setAuth}/>
                 ) : (
-                  <Redirect to='/login' /> 
+                  <Redirect to='/log' /> 
                 )
               }
             />
             <Route 
               exact
-              path='/catalog'
+              path='/cat'
               render={props => <Catalog {...props} isAuth={isAuthenticated} setAuth={setAuth}/>}
             />
           </Switch>

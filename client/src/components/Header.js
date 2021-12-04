@@ -20,7 +20,7 @@ const Header = ({isAuth, setAuth}) => {
                     <span className='btns-container'>
                     <li className='link'>
                         {isAuth ? 
-                            <Link to='/dashboard' className='profile-btn-header'>Личный кабинет</Link> :
+                            <Link to='/board' className='profile-btn-header'>Личный кабинет</Link> :
                             null
                         }
 
@@ -28,7 +28,7 @@ const Header = ({isAuth, setAuth}) => {
                     <li className='link'>
                         {isAuth ? 
                             <button className='log-btn' onClick={e => logout(e)}>Выйти</button> :
-                            <Link to='/login' className='log-btn'>Войти</Link>
+                            <Link to='/log' className='log-btn'>Войти</Link>
                         }
                     </li>
                     </span>

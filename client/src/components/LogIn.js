@@ -67,7 +67,7 @@ const Login = ({setAuth}) => {
                     className='btn color-btn btn-block'
                 >Войти</button>
             </form>
-            <Link to='/register' className='text-muted w-100'>Регистрация</Link>
+            <Link to='/reg' className='text-muted w-100'>Регистрация</Link>
             <br />
             <Link to='/' className='text-muted w-100'>На главную</Link>
             </div>
