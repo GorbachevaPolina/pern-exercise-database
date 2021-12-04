@@ -17,11 +17,6 @@ router.get("/", async (req, res) => {
                 [categories]
             )
 
-            const test = await pool.query(
-                "select * from test"
-            )
-            console.log(test.rows)
-
             res.json(items.rows);
         } else {
             throw new Error('Empty categories array')
