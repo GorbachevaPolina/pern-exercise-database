@@ -3,7 +3,6 @@ import React, {Fragment, useState} from "react";
 const CategoryModal = ({categories, setChosen, chosen}) => {
 
     const [show, setShow] = useState('modal-hidden');
-    // const [chosen, setChosen] = useState([])
 
     function showModal() {
         setShow('modal-show');

@@ -6,21 +6,12 @@ const MainPage = ({isAuth, setAuth}) => {
     return (
         <div className='main-page-container'>
             <Header isAuth={isAuth} setAuth={setAuth}/>
-            {/* <img 
-                src='https://p4.wallpaperbetter.com/wallpaper/63/681/258/sports-gym-wallpaper-preview.jpg'
-                className='w-100'
-            /> */}
             <div className='hero'>
                 <p className='hero-text'>
                     Каталог упражнений
                     <br />
                     Начни работу над собой сегодня
                 </p>
-                {/* {
-                    isAuth ?
-                    <Link to='/dashboard' className='profile-btn main-btn'>Избранное</Link> :
-                    <Link to='/register' className='profile-btn main-btn'>Регистрация</Link>
-                } */}
                 {
                     isAuth ?
                     null :

@@ -3,9 +3,6 @@ import React, {Fragment, useState} from "react";
 const AddExercise = () => {
 
     const [show, setShow] = useState('modal-hidden');
-    // const [content, setContent] = useState('');
-    // const [name, setName] = useState('');
-    // const [description, setDescription] = useState('')
     const [inputs, setInputs] = useState({
         content: '',
         name: '',

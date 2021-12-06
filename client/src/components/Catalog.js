@@ -43,24 +43,6 @@ const Catalog = ({isAuth, setAuth}) => {
             console.error(err);
         }
     }
-
-    // async function getExercises() {
-    //     try {
-    //         // console.log(categories)
-    //         const response = await fetch(
-    //             'http://localhost:5000/catalog/', {
-    //                 method: 'GET',
-    //                 headers: {categories: categories}
-    //             }
-    //         )
-
-    //         const parseRes = await response.json();
-            
-    //         setExercises(parseRes)
-    //     } catch (err) {
-    //         console.error(err);
-    //     }
-    // } 
     
 
     useEffect(() => {
@@ -75,16 +57,6 @@ const Catalog = ({isAuth, setAuth}) => {
             <Header isAuth={isAuth} setAuth={setAuth}/>
             <h1>Каталог</h1>
             <div className='category-container'>
-                {/* {
-                    category_groups.map(function(category_item) {
-                        return (
-                        <button className='category-group'>
-                            {category_item.category_group}
-                        </button>
-                        )
-                    })
-                } */}
-                {/* <CategoryModal categories1={categories1} categories2={categories2} categories3={categories3}/> */}
                 <CategoryModal categories={categories} setChosen={setChosen} chosen={chosen}/>
 
             </div>
@@ -94,23 +66,6 @@ const Catalog = ({isAuth, setAuth}) => {
                 null
             }
             <CatalogExercises isAuth={isAuth} setAuth={setAuth} categories={categories} chosen={chosen}/>
-            {/* <div className='fav-img-container'>
-                {exercises.map(function(item) {
-                        return (
-                            <article className='fav-item' key={item.exercise_id}>
-                                <div className='img-box'>
-                                <img
-                                src={'https://img.youtube.com/vi/' + item.content.slice(-11) + '/maxresdefault.jpg'}  className='fav-img'/>
-                                </div>
-                                <div className='fav-item-info'>
-                                    <h4>{item.name}</h4>
-                                </div>
-                                <FullInfoModule item={item} isAuth={isAuth} isCatalog={true}/>
-                            </article>
-                        )
-                    })
-                }
-            </div>  */}
             
         </div>
     )

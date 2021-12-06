@@ -37,8 +37,6 @@ const Dashboard = ({isAuth, setAuth}) => {
 
     return (
         <div className='profile-container'>
-            {/* <h1>Dashboard {username}</h1>
-            <button className='btn btn-primary' onClick={e => logout(e)}>Logout</button> */}
             <div className='sidebar-container'>
                 <div className='sidebar-content'>
                 <p className='sidebar-text'>
