@@ -4,24 +4,6 @@ const authorization = require("../middleware/authorization");
 
 router.get("/", async (req, res) => {
     try {
-        // if (req.header('categories').length !== 0) {
-        //     const array = JSON.parse(req.header('categories'));
-        //     array.forEach(item => item.category_name = decodeURI(item.category_name))
-        //     let categories = [];
-        //     for (let i = 0; i < array.length; ++i) {
-        //         categories.push(array[i].category_id)
-        //     }
-
-        //     const items = await pool.query(
-        //         "SELECT distinct exercise_id, content, name, description FROM exercises JOIN category_exercise USING(exercise_id) WHERE category_exercise.category_id = ANY($1::int[]) ORDER BY exercise_id",
-        //         [categories]
-        //     )
-        //     console.log(items.rows)
-
-        //     res.json(items.rows);
-        // } else {
-        //     throw new Error('Empty categories array')
-        // }
         const items = await pool.query(
             "SELECT * FROM exercises"
         )

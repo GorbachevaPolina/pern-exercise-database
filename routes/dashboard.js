@@ -43,12 +43,12 @@ router.post("/fav", authorization, async (req, res) => {
 
 router.get("/fav", authorization, async (req, res) => {
     try {
-        const dishes = await pool.query(
+        const items = await pool.query(
             "SELECT * FROM exercises WHERE exercise_id IN (SELECT exercise_id FROM favourites WHERE user_id=$1);",
             [req.user]
         ) 
 
-        res.json(dishes.rows)
+        res.json(items.rows)
     } catch (err) { 
         console.error(err.message);
         res.status(500).json("Server Error");

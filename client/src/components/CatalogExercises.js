@@ -12,8 +12,7 @@ const CatalogExercises = ({isAuth, setAuth, categories, chosen}) => {
                 encoded_categories.forEach(item => item.category_name = encodeURI(item.category_name))
                 const response = await fetch(
                     '/catalog/', {
-                        method: 'GET',
-                        headers: {categories: JSON.stringify(encoded_categories)}
+                        method: 'GET'
                     }
                 )
                 
