@@ -70,23 +70,23 @@ const AddExercise = () => {
                 <div className='modal-content'>
                     <form className='w-100' onSubmit={onSubmitForm}>
                         <p>Ссылка на видео: </p>
-                        <input type='text' className='form-control' name='content' placeholder='link' value={content} onChange={e => onChange(e)} />
+                        <input type='text' maxlength='50' className='form-control' name='content' placeholder='link' value={content} onChange={e => onChange(e)} />
 
                         <p>Название видео: </p>
-                        <input type='text' className='form-control' name='name' placeholder='name' value={name} onChange={e => onChange(e)} />
+                        <input type='text' maxlength='100' className='form-control' name='name' placeholder='name' value={name} onChange={e => onChange(e)} />
 
                         <p>Описание тренировки: </p>
-                        <input type='text' className='form-control' name='description' placeholder='description' value={description} onChange={e => onChange(e)} />
+                        <input type='text' maxlength='255' className='form-control' name='description' placeholder='description' value={description} onChange={e => onChange(e)} />
 
                         <h4>Категории</h4>
                         <p>Тип: </p>
-                        <input type='text' className='form-control' name='type' placeholder='type' value={type} onChange={e => onChange(e)} />
+                        <input type='text' maxlength='50' className='form-control' name='type' placeholder='type' value={type} onChange={e => onChange(e)} />
 
                         <p>Группа мышц: </p>
-                        <input type='text' className='form-control' name='muscle' placeholder='muscle group' value={muscle} onChange={e => onChange(e)} />
+                        <input type='text' maxlength='50' className='form-control' name='muscle' placeholder='muscle group' value={muscle} onChange={e => onChange(e)} />
 
                         <p>Оборудование: </p>
-                        <input type='text' className='form-control' name='equipment' placeholder='equipment' value={equipment} onChange={e => onChange(e)} />
+                        <input type='text' maxlength='50' className='form-control' name='equipment' placeholder='equipment' value={equipment} onChange={e => onChange(e)} />
 
                         <button className='add-btn'>Добавить упражнение</button>
                     </form>

@@ -49,6 +49,7 @@ const Login = ({setAuth}) => {
             <form onSubmit={onSubmitForm}>
                 <input 
                     type='email'
+                    maxlength='100'
                     name='email'
                     placeholder='email'
                     className='form-control my-3'

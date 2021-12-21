@@ -50,6 +50,7 @@ const Register = ({setAuth}) => {
             <form onSubmit={onSubmitForm}>
                 <input 
                     type='email' 
+                    maxlength='100'
                     name='email' 
                     placeholder='email' 
                     className='form-control my-3'
@@ -66,6 +67,7 @@ const Register = ({setAuth}) => {
                 />
                 <input 
                     type='text' 
+                    maxlength='50'
                     name='username' 
                     placeholder='name' 
                     className='form-control my-3'
