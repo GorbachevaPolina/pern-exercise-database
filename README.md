@@ -1,3 +1,3 @@
-# web-project
+# pern-exercise-database
 
-PERN stack project
+PERN stack project for university subject "An Introduction to Database Systems"
