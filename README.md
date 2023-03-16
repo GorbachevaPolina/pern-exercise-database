@@ -1,3 +1,10 @@
-# pern-exercise-database
+# ExerciseDatabase
 
-PERN stack project for university subject "An Introduction to Database Systems"
+## Description
+PERN stack project for university subject "An Introduction to Database Systems". 
+
+## Technologies
+* React
+* PostreSQL
+* Express
+* Node.js
