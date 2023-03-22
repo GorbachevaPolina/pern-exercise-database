@@ -1,9 +1,9 @@
 # ExerciseDatabase
 
-## Description
-PERN stack project for university subject "An Introduction to Database Systems". 
+## Описание
+Проект создан для предмета "Введение в базы данных". Пользователь может зарегистрироваться, авторизоваться, просматривать каталог с видео-упражнениями и добавлять их в избранное. 
 
-## Technologies
+## Технологии
 * React
 * PostreSQL
 * Express
