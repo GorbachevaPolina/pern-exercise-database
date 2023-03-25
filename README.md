@@ -1,9 +1,9 @@
 # ExerciseDatabase
 
-## Описание
-Проект создан для предмета "Введение в базы данных". Пользователь может зарегистрироваться, авторизоваться, просматривать каталог с видео-упражнениями и добавлять их в избранное. 
+## Description
+This project is created for a subject "Introduction to databases". The user can register, login, view the catalog of exercises and add videos to favourites. 
 
-## Технологии
+## Technologies
 * React
 * PostreSQL
 * Express
